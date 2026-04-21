@@ -14,6 +14,8 @@
         &kp H        &kp J        &kp K        &kp L        &kp ENTER
         &kp N        &kp M        &kp FSLH     &kp SPACE    &kp C_MUTE
       >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
   };
 };
