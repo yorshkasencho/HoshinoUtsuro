@@ -15,9 +15,6 @@
         &kp N        &kp M        &kp FSLH     &kp C_MUTE
                                       &kp SPACE &kp ENTER
       >;
-
-      /* 左回し=音量アップ / 右回し=音量ダウン */
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
   };
 };
