@@ -7,15 +7,24 @@
 
     default_layer {
       bindings = <
-        &kp Q        &kp W        &kp E        &kp R        &kp T
-        &kp A        &kp S        &kp D        &kp F        &kp G
-        &kp Z        &kp X        &kp C        &kp V        &kp B
-        &kp Y        &kp U        &kp I        &kp O        &kp P
-        &kp H        &kp J        &kp K        &kp L        &kp ENTER
-        &kp N        &kp M        &kp FSLH     &kp SPACE    &kp C_MUTE
+        &kp Q           &kp W           &kp E           &kp R           &kp T
+        &kp A           &kp S           &kp D           &lt 1 F          &kp G
+        &kp Z           &kp X           &kp C           &kp V           &kp B
+        &kp Y           &kp U           &kp I           &kp O           &kp P
+        &kp H           &lt 1 J          &kp K           &kp L           &kp ENTER
+        &kp N           &kp M           &kp FSLH        &kp SPACE       &kp C_MUTE
       >;
+    };
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+    symbol_layer {
+      bindings = <
+        &kp EXCL        &kp DQT         &kp HASH        &kp DLLR        &kp PRCNT
+        &kp LPAR        &kp LBKT        &kp LBRC        &trans          &kp COLON
+        &kp RPAR        &kp RBKT        &kp RBRC        &kp SPACE       &kp BSLH
+        &kp AMPS        &kp TILDE       &kp PLUS        &kp MINUS       &kp EQUAL
+        &kp SEMI        &trans          &kp ASTRK       &kp AT          &trans
+        &kp SPACE       &kp QMARK       &kp UNDER       &trans          &trans
+      >;
     };
   };
 };
