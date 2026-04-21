@@ -20,12 +20,12 @@
 
     symbol_layer {
       bindings = <
-        &kp EXCL        &kp DQT         &kp HASH        &kp DLLR        &kp PRCNT
-        &kp LPAR        &kp LBKT        &kp LBRC        &trans          &kp COLON
-        &kp RPAR        &kp RBKT        &kp RBRC        &kp SPACE       &kp BSLH
-        &kp AMPS        &kp TILDE       &kp PLUS        &kp MINUS       &kp EQUAL
-        &kp SEMI        &trans          &kp ASTRK       &kp AT          &trans
-        &kp SPACE       &kp QMARK       &kp UNDER       &trans          &trans
+        &kp LS(N1)      &kp LS(N2)      &kp LS(N3)      &kp LS(N4)      &kp LS(N5)
+        &kp LS(N8)      &kp RBKT        &kp RBRC        &trans          &kp LS(SEMI)
+        &kp LS(N9)      &kp BSLH        &kp LS(BSLH)    &kp SPACE       &kp NUBS
+        &kp LS(N6)      &kp LS(EQUAL)   &kp COLON       &kp MINUS       &kp UNDER
+        &kp SEMI        &trans          &kp LS(COLON)   &kp LBKT        &trans
+        &kp SPACE       &kp LS(FSLH)    &kp UNDER       &trans          &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
