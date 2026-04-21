@@ -10,8 +10,8 @@
         &kp Q           &kp W           &kp E           &kp R           &kp T
         &kp A           &kp S           &kp D           &lt 1 F          &kp G
         &kp Z           &kp X           &kp C           &kp V           &kp B
-        &kp Y           &kp U           &kp I           &kp O           &kp P
-        &kp H           &lt 1 J          &kp K           &kp L           &kp ENTER
+        &kp Y           &kp U           &kp I           &lt 2 O          &kp BSPC
+        &kp H           &lt 1 J          &lt 3 K          &kp ENTER       &kp ENTER
         &kp N           &kp M           &kp FSLH        &kp SPACE       &kp C_MUTE
       >;
 
@@ -26,6 +26,32 @@
         &kp LS(N6)      &kp LS(EQUAL)   &kp LS(SEMI)    &kp MINUS       &kp LS(MINUS)
         &kp SEMI        &trans          &kp LS(APOS)    &kp LBKT        &trans
         &kp SPACE       &kp LS(FSLH)    &kp LS(INT1)    &trans          &trans
+      >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+    };
+
+    o_hold_layer {
+      bindings = <
+        &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &kp P
+        &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans
+      >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+    };
+
+    k_hold_layer {
+      bindings = <
+        &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &kp L           &trans
+        &trans          &trans          &trans          &trans          &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
