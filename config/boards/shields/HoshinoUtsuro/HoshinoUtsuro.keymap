@@ -2,6 +2,28 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+  behaviors {
+    op_hold: op_hold {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "balanced";
+      tapping-term-ms = <280>;
+      hold-trigger-key-positions = <19>; /* P position */
+      hold-trigger-on-release;
+      bindings = <&mo>, <&kp>;
+    };
+
+    kl_hold: kl_hold {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "balanced";
+      tapping-term-ms = <280>;
+      hold-trigger-key-positions = <23>; /* L position */
+      hold-trigger-on-release;
+      bindings = <&mo>, <&kp>;
+    };
+  };
+
   keymap {
     compatible = "zmk,keymap";
 
@@ -10,8 +32,8 @@
         &kp Q           &kp W           &kp E           &kp R           &kp T
         &kp A           &kp S           &kp D           &lt 1 F          &kp G
         &kp Z           &kp X           &kp C           &kp V           &kp B
-        &kp Y           &kp U           &kp I           &lt 2 O          &kp BSPC
-        &kp H           &lt 1 J          &lt 3 K          &kp ENTER       &kp ENTER
+        &kp Y           &kp U           &kp I           &op_hold 2 O    &kp BSPC
+        &kp H           &lt 1 J          &kl_hold 3 K    &kp ENTER       &kp ENTER
         &kp N           &kp M           &kp FSLH        &kp SPACE       &kp C_MUTE
       >;
 
