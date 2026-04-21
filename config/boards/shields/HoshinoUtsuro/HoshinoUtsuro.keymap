@@ -14,6 +14,8 @@
         &kp H           &lt 1 J          &kp K           &kp L           &kp ENTER
         &kp N           &kp M           &kp FSLH        &kp SPACE       &kp C_MUTE
       >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
 
     symbol_layer {
@@ -25,6 +27,8 @@
         &kp SEMI        &trans          &kp ASTRK       &kp AT          &trans
         &kp SPACE       &kp QMARK       &kp UNDER       &trans          &trans
       >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
   };
 };
