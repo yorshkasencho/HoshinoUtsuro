@@ -15,19 +15,19 @@
 
     /* 5 columns */
     col-gpios =
-      <&xiao_d 7 GPIO_ACTIVE_HIGH>,   /* COL0 : D7 */
+      <&xiao_d 9 GPIO_ACTIVE_HIGH>,   /* COL0 : D9 */
       <&xiao_d 2 GPIO_ACTIVE_HIGH>,   /* COL1 : D2 */
       <&xiao_d 3 GPIO_ACTIVE_HIGH>,   /* COL2 : D3 */
       <&xiao_d 5 GPIO_ACTIVE_HIGH>,   /* COL3 : D5 */
-      <&xiao_d 6 GPIO_ACTIVE_HIGH>;   /* COL4 : D6 */
+      <&xiao_d 4 GPIO_ACTIVE_HIGH>;   /* COL4 : D4 */
 
     /* 6 rows */
     row-gpios =
-      <&xiao_d 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* ROW0 : D9  */
+      <&xiao_d 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* ROW0 : D7  */
       <&xiao_d 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* ROW1 : D8  */
       <&xiao_d 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* ROW2 : D0  */
       <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* ROW3 : D10 */
-      <&xiao_d 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* ROW4 : D4  */
+      <&xiao_d 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* ROW4 : D6  */
       <&xiao_d 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; /* ROW5 : D1  */
   };
 };
