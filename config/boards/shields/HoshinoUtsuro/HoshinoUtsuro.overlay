@@ -31,14 +31,6 @@
       <&xiao_d 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; /* ROW5 : D1  */
   };
 
-  encoder0: encoder0 {
-    compatible = "alps,ec11";
-    a-gpios = <&xiao_d 16 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-    b-gpios = <&xiao_d 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-    steps = <96>;
-    status = "okay";
-  };
-
   sensors: sensors {
     compatible = "zmk,keymap-sensors";
     sensors = <&encoder0>;
