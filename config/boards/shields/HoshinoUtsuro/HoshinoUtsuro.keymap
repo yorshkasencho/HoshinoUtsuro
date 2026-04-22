@@ -3,6 +3,18 @@
 
 / {
   behaviors {
+    /* 修飾キー用:
+       短押し=文字、長押し=修飾
+       長押し後に離したとき tap が出にくいように hold-preferred */
+    modtap_hp: modtap_hp {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "hold-preferred";
+      tapping-term-ms = <220>;
+      quick-tap-ms = <0>;
+      bindings = <&kp>, <&kp>;
+    };
+
     f_sym_hold: f_sym_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -101,12 +113,12 @@
 
     default_layer {
       bindings = <
-        &kp Q                  &w_nav_hold 2 W          &kp E              &kp R            &kp T
-        &kp A                  &kp S                    &kp D              &f_sym_hold 1 F  &kp G
-        &kp Z                  &kp X                    &kp C              &kp V            &kp B
-        &kp Y                  &u_i_hold 3 U            &i_u_hold 4 I      &kp O            &kp BSPC
-        &kp H                  &j_sym_hold 1 J          &kp K              &kp ENTER        &kp ENTER
-        &n_m_hold 5 N          &m_n_hold 6 M            &kp FSLH           &kp SPACE        &kp C_MUTE
+        &kp Q                       &w_nav_hold 2 W          &kp E                 &kp R                 &kp T
+        &modtap_hp LSHIFT A         &modtap_hp LSHIFT S      &modtap_hp LALT D     &f_sym_hold 1 F       &kp G
+        &modtap_hp LCTRL Z          &modtap_hp LCTRL X       &modtap_hp LALT C     &kp V                 &kp B
+        &kp Y                       &u_i_hold 3 U            &i_u_hold 4 I         &kp O                 &kp BSPC
+        &kp H                       &j_sym_hold 1 J          &kp K                 &modtap_hp LGUI ENTER &kp ENTER
+        &n_m_hold 5 N               &m_n_hold 6 M            &kp FSLH              &kp SPACE             &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -114,12 +126,12 @@
 
     symbol_layer {
       bindings = <
-        &kp LS(N1)             &kp LS(N2)               &kp LS(N3)         &kp LS(N4)       &kp LS(N5)
-        &kp LS(N8)             &kp RBKT                 &kp LS(RBKT)       &trans           &kp APOS
-        &kp LS(N9)             &kp BSLH                 &kp LS(BSLH)       &kp SPACE        &kp INT3
-        &kp LS(N6)             &kp LS(EQUAL)            &kp LS(SEMI)       &kp MINUS        &kp LS(MINUS)
-        &kp SEMI               &trans                   &kp LS(APOS)       &kp LBKT         &trans
-        &kp SPACE              &kp LS(FSLH)             &kp LS(INT1)       &trans           &trans
+        &kp LS(N1)                  &kp LS(N2)               &kp LS(N3)            &kp LS(N4)            &kp LS(N5)
+        &kp LS(N8)                  &kp RBKT                 &kp LS(RBKT)          &trans                &kp APOS
+        &kp LS(N9)                  &kp BSLH                 &kp LS(BSLH)          &kp SPACE             &kp INT3
+        &kp LS(N6)                  &kp LS(EQUAL)            &kp LS(SEMI)          &kp MINUS             &kp LS(MINUS)
+        &kp SEMI                    &trans                   &kp LS(APOS)          &kp LBKT              &trans
+        &kp SPACE                   &kp LS(FSLH)             &kp LS(INT1)          &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -127,12 +139,12 @@
 
     w_hold_layer {
       bindings = <
-        &kp ESC                &trans                   &trans             &trans           &trans
-        &kp TAB                &trans                   &trans             &trans           &trans
-        &kp CAPS               &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
+        &kp ESC                     &trans                   &trans                &trans                &trans
+        &kp TAB                     &trans                   &trans                &trans                &trans
+        &kp CAPS                    &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -140,12 +152,12 @@
 
     u_hold_layer {
       bindings = <
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &kp LANG2          &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &kp LANG2             &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -153,12 +165,12 @@
 
     i_hold_layer {
       bindings = <
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &kp LANG1                &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &kp LANG1                &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -166,12 +178,12 @@
 
     n_hold_layer {
       bindings = <
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &kp COMMA               &trans             &trans           &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &kp COMMA                &trans                &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -179,12 +191,12 @@
 
     m_hold_layer {
       bindings = <
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &trans                   &trans             &trans           &trans
-        &kp DOT                &trans                   &trans             &trans           &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
+        &kp DOT                     &trans                   &trans                &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
