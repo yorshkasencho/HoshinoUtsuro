@@ -128,7 +128,7 @@
         &kp N                       &kp M                    &slash_num_hold 2 FSLH &kp SPACE            &kp C_MUTE
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     symbol_layer {
@@ -141,7 +141,7 @@
         &kp SPACE                   &kp LS(FSLH)             &kp LS(INT1)          &trans                &trans
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     number_layer {
@@ -154,7 +154,7 @@
         &kp F11                     &kp F12                  &trans                &none                 &none
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     nav_layer {
@@ -167,7 +167,7 @@
         &trans                      &trans                   &trans                &trans                &trans
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
   };
 };
