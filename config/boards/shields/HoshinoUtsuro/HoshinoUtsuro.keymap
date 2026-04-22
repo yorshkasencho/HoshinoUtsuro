@@ -4,8 +4,7 @@
 / {
   behaviors {
     /* 修飾キー用:
-       短押し=文字、長押し=修飾
-       誤爆を減らすため tap-preferred */
+       短押し=文字、長押し=修飾 */
     modtap_hp: modtap_hp {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -19,7 +18,7 @@
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "balanced";
-      tapping-term-ms = <280>;
+      tapping-term-ms = <200>;
       hold-trigger-key-positions = <0 1 2 3 4 5 6 7 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29>;
       hold-trigger-on-release;
       bindings = <&mo>, <&kp>;
@@ -29,38 +28,8 @@
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "balanced";
-      tapping-term-ms = <280>;
+      tapping-term-ms = <200>;
       hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 22 23 24 25 26 27 28 29>;
-      hold-trigger-on-release;
-      bindings = <&mo>, <&kp>;
-    };
-
-    w_nav_hold: w_nav_hold {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      hold-trigger-key-positions = <0 5 10>; /* Q A Z */
-      hold-trigger-on-release;
-      bindings = <&mo>, <&kp>;
-    };
-
-    u_i_hold: u_i_hold {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      hold-trigger-key-positions = <17>; /* I */
-      hold-trigger-on-release;
-      bindings = <&mo>, <&kp>;
-    };
-
-    i_u_hold: i_u_hold {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      hold-trigger-key-positions = <16>; /* U */
       hold-trigger-on-release;
       bindings = <&mo>, <&kp>;
     };
@@ -69,7 +38,7 @@
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "balanced";
-      tapping-term-ms = <280>;
+      tapping-term-ms = <200>;
       hold-trigger-on-release;
       bindings = <&mo>, <&kp>;
     };
@@ -107,6 +76,42 @@
       key-positions = <26 27>; /* M + /? */
       bindings = <&kp DOT>;
     };
+
+    combo_qw_esc {
+      timeout-ms = <40>;
+      key-positions = <0 1>; /* Q + W */
+      bindings = <&kp ESC>;
+    };
+
+    combo_aw_tab {
+      timeout-ms = <40>;
+      key-positions = <5 1>; /* A + W */
+      bindings = <&kp TAB>;
+    };
+
+    combo_zw_caps {
+      timeout-ms = <40>;
+      key-positions = <10 1>; /* Z + W */
+      bindings = <&kp CAPS>;
+    };
+
+    combo_ui_kana {
+      timeout-ms = <40>;
+      key-positions = <16 17>; /* U + I */
+      bindings = <&kp LANG1>;
+    };
+
+    combo_er_eisu {
+      timeout-ms = <40>;
+      key-positions = <2 3>; /* E + R */
+      bindings = <&kp LANG2>;
+    };
+
+    combo_lslash_gui {
+      timeout-ms = <40>;
+      key-positions = <23 27>; /* L位置 + /? */
+      bindings = <&kp LGUI>;
+    };
   };
 
   keymap {
@@ -114,12 +119,12 @@
 
     default_layer {
       bindings = <
-        &modtap_hp LSHIFT Q         &w_nav_hold 2 W          &kp E                 &kp R                 &kp T
+        &modtap_hp LSHIFT Q         &kp W                    &kp E                 &kp R                 &kp T
         &kp A                       &kp S                    &kp D                 &f_sym_hold 1 F       &kp G
         &modtap_hp LCTRL Z          &modtap_hp LCTRL X       &modtap_hp LALT C     &modtap_hp LALT V     &kp B
-        &kp Y                       &u_i_hold 3 U            &i_u_hold 4 I         &kp O                 &kp BSPC
+        &kp Y                       &kp U                    &kp I                 &kp O                 &kp BSPC
         &kp H                       &j_sym_hold 1 J          &kp K                 &modtap_hp LGUI ENTER &kp ENTER
-        &kp N                       &kp M                    &slash_num_hold 5 FSLH &kp SPACE            &kp C_MUTE
+        &kp N                       &kp M                    &slash_num_hold 2 FSLH &kp SPACE            &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -133,45 +138,6 @@
         &kp LS(N6)                  &kp LS(EQUAL)            &kp LS(SEMI)          &kp MINUS             &kp LS(MINUS)
         &kp SEMI                    &trans                   &kp LS(APOS)          &kp LBKT              &trans
         &kp SPACE                   &kp LS(FSLH)             &kp LS(INT1)          &trans                &trans
-      >;
-
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
-
-    w_hold_layer {
-      bindings = <
-        &kp ESC                     &trans                   &trans                &trans                &trans
-        &kp TAB                     &trans                   &trans                &trans                &trans
-        &kp CAPS                    &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-      >;
-
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
-
-    u_hold_layer {
-      bindings = <
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &kp LANG2             &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-      >;
-
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
-
-    i_hold_layer {
-      bindings = <
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &kp LANG1                &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
-        &trans                      &trans                   &trans                &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
