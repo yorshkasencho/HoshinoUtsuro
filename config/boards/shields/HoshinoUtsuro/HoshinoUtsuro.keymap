@@ -1,5 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
   behaviors {
@@ -123,7 +124,7 @@
         &kp A                       &kp S                    &kp D                 &f_sym_hold 1 F       &kp G
         &modtap_hp LCTRL Z          &modtap_hp LCTRL X       &modtap_hp LALT C     &modtap_hp LALT V     &kp B
         &kp Y                       &kp U                    &kp I                 &kp O                 &kp BSPC
-        &kp H                       &j_sym_hold 1 J          &kp K                 &modtap_hp LGUI ENTER &kp ENTER
+        &kp H                       &j_sym_hold 1 J          &kp K                 &lt 3 ENTER            &kp ENTER
         &kp N                       &kp M                    &slash_num_hold 2 FSLH &kp SPACE            &kp C_MUTE
       >;
 
@@ -151,6 +152,19 @@
         &kp F1                      &kp F2                   &kp F3                &kp F4                &kp F5
         &kp F6                      &kp F7                   &kp F8                &kp F9                &none
         &kp F11                     &kp F12                  &trans                &none                 &none
+      >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+    };
+
+    nav_layer {
+      bindings = <
+        &kp C_AC_SCREENSHOT         &kp UP                   &trans                &trans                &trans
+        &kp LEFT                    &kp DOWN                 &kp RIGHT             &kp HOME              &trans
+        &kp INS                     &trans                   &trans                &trans                &kp F10
+        &trans                      &mkp MCLK                &trans                &trans                &kp DEL
+        &trans                      &mkp LCLK                &mkp RCLK             &trans                &trans
+        &trans                      &trans                   &trans                &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
