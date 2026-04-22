@@ -159,11 +159,11 @@
 
     nav_layer {
       bindings = <
-        &kp C_AC_SCREENSHOT         &kp UP                   &trans                &trans                &trans
+        &kp LG(LS(S))               &kp UP                   &trans                &trans                &trans
         &kp LEFT                    &kp DOWN                 &kp RIGHT             &kp HOME              &trans
         &kp INS                     &trans                   &trans                &trans                &kp F10
-        &trans                      &mkp MCLK                &trans                &trans                &kp DEL
-        &trans                      &mkp LCLK                &mkp RCLK             &trans                &trans
+        &trans                      &mkp MB3                 &trans                &trans                &kp DEL
+        &trans                      &mkp MB1                 &mkp MB2              &trans                &trans
         &trans                      &trans                   &trans                &trans                &trans
       >;
 
