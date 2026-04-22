@@ -101,12 +101,12 @@
 
     default_layer {
       bindings = <
-        &kp Q                  &w_nav_hold 4 W          &kp E              &kp R            &kp T
+        &kp Q                  &w_nav_hold 2 W          &kp E              &kp R            &kp T
         &kp A                  &kp S                    &kp D              &f_sym_hold 1 F  &kp G
         &kp Z                  &kp X                    &kp C              &kp V            &kp B
-        &kp Y                  &u_i_hold 5 U            &i_u_hold 6 I      &kp O            &kp BSPC
+        &kp Y                  &u_i_hold 3 U            &i_u_hold 4 I      &kp O            &kp BSPC
         &kp H                  &j_sym_hold 1 J          &kp K              &kp ENTER        &kp ENTER
-        &n_m_hold 7 N          &m_n_hold 8 M            &kp FSLH           &kp SPACE        &kp C_MUTE
+        &n_m_hold 5 N          &m_n_hold 6 M            &kp FSLH           &kp SPACE        &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -156,7 +156,7 @@
         &trans                 &trans                   &trans             &trans           &trans
         &trans                 &trans                   &trans             &trans           &trans
         &trans                 &trans                   &trans             &trans           &trans
-        &trans                 &kp LANG1               &trans             &trans           &trans
+        &trans                 &kp LANG1                &trans             &trans           &trans
         &trans                 &trans                   &trans             &trans           &trans
         &trans                 &trans                   &trans             &trans           &trans
       >;
