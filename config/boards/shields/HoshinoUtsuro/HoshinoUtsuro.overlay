@@ -10,9 +10,6 @@
     diode-direction = "col2row";
     wakeup-source;
 
-    debounce-press-ms = <10>;
-    debounce-release-ms = <10>;
-
     /* 5 columns */
     col-gpios =
       <&xiao_d 9 GPIO_ACTIVE_HIGH>,   /* COL0 : D9 */
