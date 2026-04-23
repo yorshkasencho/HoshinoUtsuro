@@ -141,8 +141,8 @@
         &kp LS(N8)                  &kp RBKT                 &kp LS(RBKT)          &trans                &kp APOS
         &kp LS(N9)                  &kp BSLH                 &kp LS(BSLH)          &kp SPACE             &kp INT3
         &kp LS(N6)                  &kp LS(EQUAL)            &kp LS(SEMI)          &kp MINUS             &kp LS(MINUS)
-        &kp SEMI                    &trans                   &kp LS(APOS)          &kp LBKT              &trans
-        &kp SPACE                   &kp LS(FSLH)             &kp LS(INT1)          &trans                &trans
+        &kp SEMI                    &kp LS(APOS)             &kp LBKT              &trans                &trans
+        &kp SPACE                   &kp UNDER                &kp QMARK             &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -150,7 +150,7 @@
 
     number_layer {
       bindings = <
-        &kp N1                      &kp N2                   &kp N3                &kp DOT               &none
+        &kp N1                      &kp N2                   &kp N3                &kp DOT               &kp LS(N5)
         &kp N4                      &kp N5                   &kp N6                &kp N0                &none
         &kp N7                      &kp N8                   &kp N9                &kp COMMA             &kp F10
         &kp F1                      &kp F2                   &kp F3                &kp F4                &kp F5
@@ -163,7 +163,7 @@
 
     nav_layer {
       bindings = <
-        &kp LG(LS(S))               &kp UP                   &trans                &trans                &trans
+        &kp LG(LS(S))               &kp UP                   &kp HOME              &trans                &trans
         &kp LEFT                    &kp DOWN                 &kp RIGHT             &kp HOME              &trans
         &kp INS                     &trans                   &trans                &trans                &trans
         &trans                      &mkp MB3                 &trans                &trans                &kp DEL
