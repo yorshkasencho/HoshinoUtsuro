@@ -69,9 +69,9 @@
       bindings = <&kp SPACE>;
     };
 
-    combo_nslash_comma {
+    combo_nm_comma {
       timeout-ms = <40>;
-      key-positions = <25 27>; /* N + /? */
+      key-positions = <25 26>; /* N + M */
       bindings = <&kp COMMA>;
     };
 
@@ -165,7 +165,7 @@
       bindings = <
         &kp LG(LS(S))               &kp UP                   &kp HOME              &trans                &trans
         &kp LEFT                    &kp DOWN                 &kp RIGHT             &kp HOME              &trans
-        &kp INS                     &trans                   &trans                &trans                &trans
+        &kp INS                     &trans                   &kp LS(LC(TAB))       &kp TAB               &kp LC(TAB)
         &trans                      &mkp MB3                 &trans                &trans                &kp DEL
         &trans                      &mkp MB1                 &mkp MB2              &trans                &trans
         &trans                      &trans                   &trans                &trans                &trans
