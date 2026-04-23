@@ -4,8 +4,6 @@
 
 / {
   behaviors {
-    /* 修飾キー用:
-       短押し=文字、長押し=修飾 */
     modtap_hp: modtap_hp {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -15,7 +13,6 @@
       bindings = <&kp>, <&kp>;
     };
 
-    /* F長押しでナビ */
     f_nav_hold: f_nav_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -26,7 +23,6 @@
       bindings = <&mo>, <&kp>;
     };
 
-    /* L位置キー長押しで記号 */
     l_sym_hold: l_sym_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -37,7 +33,6 @@
       bindings = <&mo>, <&kp>;
     };
 
-    /* /? 長押しで数字レイヤー */
     slash_num_hold: slash_num_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -53,68 +48,100 @@
 
     combo_op_p {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <18 19>; /* O + P */
       bindings = <&kp P>;
     };
 
     combo_kl_l {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <22 23>; /* K + L位置 */
       bindings = <&kp L>;
     };
 
     combo_fj_space {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <8 21>; /* F + J */
       bindings = <&kp SPACE>;
     };
 
     combo_nm_comma {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <25 26>; /* N + M */
       bindings = <&kp COMMA>;
     };
 
     combo_mslash_dot {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <26 27>; /* M + /? */
       bindings = <&kp DOT>;
     };
 
     combo_qw_esc {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <0 1>; /* Q + W */
       bindings = <&kp ESC>;
     };
 
     combo_aw_tab {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <5 1>; /* A + W */
       bindings = <&kp TAB>;
     };
 
     combo_zw_caps {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <10 1>; /* Z + W */
       bindings = <&kp CAPS>;
     };
 
     combo_ui_kana {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <16 17>; /* U + I */
       bindings = <&kp LANG1>;
     };
 
     combo_er_eisu {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <2 3>; /* E + R */
       bindings = <&kp LANG2>;
     };
 
     combo_lslash_gui {
       timeout-ms = <40>;
+      layers = <0>;
       key-positions = <23 27>; /* L位置 + /? */
       bindings = <&kp LGUI>;
+    };
+
+    combo_nav_op_bt1 {
+      timeout-ms = <40>;
+      layers = <3>;
+      key-positions = <18 19>; /* O + P */
+      bindings = <&bt BT_SEL 0>;
+    };
+
+    combo_nav_kl_bt2 {
+      timeout-ms = <40>;
+      layers = <3>;
+      key-positions = <22 23>; /* K + L位置 */
+      bindings = <&bt BT_SEL 1>;
+    };
+
+    combo_nav_mslash_bt3 {
+      timeout-ms = <40>;
+      layers = <3>;
+      key-positions = <26 27>; /* M + /? */
+      bindings = <&bt BT_SEL 2>;
     };
   };
 
@@ -131,7 +158,6 @@
         &kp N                       &kp M                    &slash_num_hold 2 FSLH &kp SPACE            &kp C_MUTE
       >;
 
-      /* 左回し=音量ダウン / 右回し=音量アップ */
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
@@ -165,7 +191,7 @@
       bindings = <
         &kp LG(LS(S))               &kp UP                   &kp HOME              &trans                &trans
         &kp LEFT                    &kp DOWN                 &kp RIGHT             &kp HOME              &trans
-        &kp INS                     &trans                   &kp LS(LC(TAB))       &kp TAB               &kp LC(TAB)
+        &kp INS                     &kp LS(TAB)              &kp LS(LC(TAB))       &kp TAB               &kp LC(TAB)
         &trans                      &mkp MB3                 &trans                &trans                &kp DEL
         &trans                      &mkp MB1                 &mkp MB2              &trans                &trans
         &trans                      &trans                   &trans                &trans                &trans
