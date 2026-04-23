@@ -15,7 +15,8 @@
       bindings = <&kp>, <&kp>;
     };
 
-    f_sym_hold: f_sym_hold {
+    /* F長押しでナビ */
+    f_nav_hold: f_nav_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "balanced";
@@ -25,12 +26,13 @@
       bindings = <&mo>, <&kp>;
     };
 
-    j_sym_hold: j_sym_hold {
+    /* L位置キー長押しで記号 */
+    l_sym_hold: l_sym_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "balanced";
       tapping-term-ms = <200>;
-      hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 22 23 24 25 26 27 28 29>;
+      hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 24 25 26 27 28 29>;
       hold-trigger-on-release;
       bindings = <&mo>, <&kp>;
     };
@@ -42,6 +44,27 @@
       tapping-term-ms = <200>;
       hold-trigger-on-release;
       bindings = <&mo>, <&kp>;
+    };
+
+    /* 音量だけ2倍速 */
+    vol_dn_2x: vol_dn_2x {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings =
+        <&kp C_VOL_DN>,
+        <&kp C_VOL_DN>;
+    };
+
+    vol_up_2x: vol_up_2x {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings =
+        <&kp C_VOL_UP>,
+        <&kp C_VOL_UP>;
     };
   };
 
@@ -56,7 +79,7 @@
 
     combo_kl_l {
       timeout-ms = <40>;
-      key-positions = <22 23>; /* K + L */
+      key-positions = <22 23>; /* K + L位置 */
       bindings = <&kp L>;
     };
 
@@ -121,14 +144,14 @@
     default_layer {
       bindings = <
         &modtap_hp LSHIFT Q         &kp W                    &kp E                 &kp R                 &kp T
-        &kp A                       &kp S                    &kp D                 &f_sym_hold 1 F       &kp G
+        &kp A                       &kp S                    &kp D                 &f_nav_hold 3 F       &kp G
         &modtap_hp LCTRL Z          &modtap_hp LCTRL X       &modtap_hp LALT C     &modtap_hp LALT V     &kp B
         &kp Y                       &kp U                    &kp I                 &kp O                 &kp BSPC
-        &kp H                       &j_sym_hold 1 J          &kp K                 &lt 3 ENTER            &kp ENTER
+        &kp H                       &kp J                    &kp K                 &l_sym_hold 1 ENTER   &kp ENTER
         &kp N                       &kp M                    &slash_num_hold 2 FSLH &kp SPACE            &kp C_MUTE
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+      sensor-bindings = <&vol_dn_2x &vol_up_2x>;
     };
 
     symbol_layer {
@@ -141,7 +164,7 @@
         &kp SPACE                   &kp LS(FSLH)             &kp LS(INT1)          &trans                &trans
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+      sensor-bindings = <&vol_dn_2x &vol_up_2x>;
     };
 
     number_layer {
@@ -154,20 +177,20 @@
         &kp F11                     &kp F12                  &trans                &none                 &none
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+      sensor-bindings = <&vol_dn_2x &vol_up_2x>;
     };
 
     nav_layer {
       bindings = <
         &kp LG(LS(S))               &kp UP                   &trans                &trans                &trans
         &kp LEFT                    &kp DOWN                 &kp RIGHT             &kp HOME              &trans
-        &kp INS                     &trans                   &trans                &trans                &kp F10
+        &kp INS                     &trans                   &trans                &trans                &trans
         &trans                      &mkp MB3                 &trans                &trans                &kp DEL
         &trans                      &mkp MB1                 &mkp MB2              &trans                &trans
         &trans                      &trans                   &trans                &trans                &trans
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+      sensor-bindings = <&vol_dn_2x &vol_up_2x>;
     };
   };
 };
