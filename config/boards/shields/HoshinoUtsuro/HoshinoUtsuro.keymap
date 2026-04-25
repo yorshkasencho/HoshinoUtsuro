@@ -14,6 +14,7 @@
       bindings = <&kp>, <&kp>;
     };
 
+    /* F長押しでナビ */
     f_nav_hold: f_nav_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -24,6 +25,7 @@
       bindings = <&mo>, <&kp>;
     };
 
+    /* L位置キー長押しで記号 */
     l_sym_hold: l_sym_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -34,6 +36,7 @@
       bindings = <&mo>, <&kp>;
     };
 
+    /* /? 長押しで数字レイヤー */
     slash_num_hold: slash_num_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -143,6 +146,13 @@
       layers = <3>;
       key-positions = <26 27>; /* M + /? */
       bindings = <&bt BT_SEL 2>;
+    };
+
+    combo_nav_plslash_btclr {
+      timeout-ms = <60>;
+      layers = <3>;
+      key-positions = <19 23 27>; /* P位置 + L位置 + /? */
+      bindings = <&bt BT_CLR>;
     };
   };
 
