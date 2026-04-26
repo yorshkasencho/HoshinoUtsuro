@@ -278,12 +278,12 @@
 
     draw_layer {
       bindings = <
-        &kp K                        &kp G                     &kp J                  &draw_space_nav_hold 3 SPACE &kp P
-        &kp LSHIFT                   &kp LGUI                  &kp LALT               &kp SPACE             &kp I
-        &kp X                        &kp O                     &kp U                  &kp Q                 &kp B
-        &kp Y                        &kp Z                     &kp M                  &none                 &none
-        &kp H                        &kp C                     &none                  &none                 &kp LC(TAB)
-        &kp N                        &none                     &none                  &kp TAB               &none
+        &kp K                        &kp G                     &kp J                  &kp F                       &kp P
+        &kp LSHIFT                   &kp LGUI                  &kp LALT               &draw_space_nav_hold 3 SPACE &kp I
+        &kp X                        &kp O                     &kp U                  &kp Q                       &kp B
+        &kp Y                        &kp Z                     &kp M                  &none                       &none
+        &kp H                        &kp C                     &none                  &none                       &kp LC(TAB)
+        &kp N                        &none                     &none                  &kp TAB                     &none
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
