@@ -36,17 +36,6 @@
       bindings = <&mo>, <&kp>;
     };
 
-    /* お絵描きモードのF位置: タップ=Space / ホールド=ナビ */
-    draw_space_nav_hold: draw_space_nav_hold {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <200>;
-      hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29>;
-      hold-trigger-on-release;
-      bindings = <&mo>, <&kp>;
-    };
-
     /* L位置キー長押しで記号 */
     l_sym_hold: l_sym_hold {
       compatible = "zmk,behavior-hold-tap";
@@ -219,6 +208,35 @@
       key-positions = <9 20 14>; /* G + H + B */
       bindings = <&tog 4>;
     };
+
+    /* お絵描きモード用BT */
+    combo_draw_op_bt1 {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <18 19>; /* O + P */
+      bindings = <&bt0_default>;
+    };
+
+    combo_draw_kl_bt2 {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <22 23>; /* K + L位置 */
+      bindings = <&bt1_draw>;
+    };
+
+    combo_draw_mslash_bt3 {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <26 27>; /* M + /? */
+      bindings = <&bt2_default>;
+    };
+
+    combo_draw_plslash_btclr {
+      timeout-ms = <60>;
+      layers = <4>;
+      key-positions = <19 23 27>; /* P位置 + L位置 + /? */
+      bindings = <&bt BT_CLR>;
+    };
   };
 
   keymap {
@@ -278,12 +296,12 @@
 
     draw_layer {
       bindings = <
-        &kp K                        &kp G                     &kp J                  &kp F                       &kp P
-        &kp LSHIFT                   &kp LGUI                  &kp LALT               &draw_space_nav_hold 3 SPACE &kp I
-        &kp X                        &kp O                     &kp U                  &kp Q                       &kp B
-        &kp Y                        &kp Z                     &kp M                  &none                       &none
-        &kp H                        &kp C                     &none                  &none                       &kp LC(TAB)
-        &kp N                        &none                     &none                  &kp TAB                     &none
+        &kp K                        &kp G                     &kp J                  &kp F                 &kp P
+        &kp LSHIFT                   &kp LGUI                  &kp LALT               &kp SPACE             &kp I
+        &kp X                        &kp O                     &kp U                  &kp Q                 &kp B
+        &kp Y                        &kp Z                     &kp M                  &none                 &none
+        &kp H                        &kp C                     &none                  &none                 &kp LC(TAB)
+        &kp N                        &none                     &none                  &kp TAB               &none
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
