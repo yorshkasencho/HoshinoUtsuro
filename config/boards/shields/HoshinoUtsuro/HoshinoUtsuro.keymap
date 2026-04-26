@@ -55,12 +55,42 @@
       hold-trigger-on-release;
       bindings = <&mo>, <&kp>;
     };
+
+    /* BLE切替 + モード確定 */
+    bt0_default: bt0_default {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings =
+        <&bt BT_SEL 0>,
+        <&to 0>;
+    };
+
+    bt1_draw: bt1_draw {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings =
+        <&bt BT_SEL 1>,
+        <&to 4>;
+    };
+
+    bt2_default: bt2_default {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings =
+        <&bt BT_SEL 2>,
+        <&to 0>;
+    };
   };
 
   combos {
     compatible = "zmk,combos";
 
-    /* ベースレイヤー用 */
     combo_op_p {
       timeout-ms = <40>;
       layers = <0>;
@@ -143,21 +173,21 @@
       timeout-ms = <40>;
       layers = <3>;
       key-positions = <18 19>; /* O + P */
-      bindings = <&bt BT_SEL 0>;
+      bindings = <&bt0_default>;
     };
 
     combo_nav_kl_bt2 {
       timeout-ms = <40>;
       layers = <3>;
       key-positions = <22 23>; /* K + L位置 */
-      bindings = <&bt BT_SEL 1>;
+      bindings = <&bt1_draw>;
     };
 
     combo_nav_mslash_bt3 {
       timeout-ms = <40>;
       layers = <3>;
       key-positions = <26 27>; /* M + /? */
-      bindings = <&bt BT_SEL 2>;
+      bindings = <&bt2_default>;
     };
 
     combo_nav_plslash_btclr {
@@ -180,21 +210,21 @@
       timeout-ms = <40>;
       layers = <4>;
       key-positions = <18 19>; /* O + P */
-      bindings = <&bt BT_SEL 0>;
+      bindings = <&bt0_default>;
     };
 
     combo_draw_kl_bt2 {
       timeout-ms = <40>;
       layers = <4>;
       key-positions = <22 23>; /* K + L位置 */
-      bindings = <&bt BT_SEL 1>;
+      bindings = <&bt1_draw>;
     };
 
     combo_draw_mslash_bt3 {
       timeout-ms = <40>;
       layers = <4>;
       key-positions = <26 27>; /* M + /? */
-      bindings = <&bt BT_SEL 2>;
+      bindings = <&bt2_default>;
     };
 
     combo_draw_plslash_btclr {
