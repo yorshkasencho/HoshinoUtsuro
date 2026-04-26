@@ -5,12 +5,27 @@
 
 / {
   behaviors {
+    /* 通常の修飾キー用:
+       短押し=文字、長押し=修飾 */
     modtap_hp: modtap_hp {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "tap-preferred";
       tapping-term-ms = <200>;
       quick-tap-ms = <0>;
+      bindings = <&kp>, <&kp>;
+    };
+
+    /* Alt専用:
+       押した瞬間から hold を有効化しやすくして、
+       Alt+マウス操作をしやすくする */
+    alt_mouse_mt: alt_mouse_mt {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <200>;
+      quick-tap-ms = <0>;
+      hold-while-undecided;
       bindings = <&kp>, <&kp>;
     };
 
@@ -163,12 +178,13 @@
       bindings = <
         &modtap_hp LSHIFT Q         &kp W                    &kp E                 &kp R                 &kp T
         &kp A                       &kp S                    &kp D                 &f_nav_hold 3 F       &kp G
-        &modtap_hp LCTRL Z          &modtap_hp LCTRL X       &modtap_hp LALT C     &modtap_hp LALT V     &kp B
+        &modtap_hp LCTRL Z          &modtap_hp LCTRL X       &alt_mouse_mt LALT C  &alt_mouse_mt LALT V  &kp B
         &kp Y                       &kp U                    &kp I                 &kp O                 &kp BSPC
         &kp H                       &kp J                    &kp K                 &l_sym_hold 1 ENTER   &kp ENTER
         &kp N                       &kp M                    &slash_num_hold 2 FSLH &kp SPACE            &kp C_MUTE
       >;
 
+      /* 左回し=音量ダウン / 右回し=音量アップ */
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
