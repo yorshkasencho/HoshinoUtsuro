@@ -98,77 +98,84 @@
     combo_op_p {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <18 19>; /* O + P */
+      key-positions = <18 19>; /* O位置 + P位置 */
       bindings = <&kp P>;
     };
 
     combo_kl_l {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <22 23>; /* K + L位置 */
+      key-positions = <22 23>; /* K位置 + L位置 */
       bindings = <&kp L>;
+    };
+
+    combo_lo_minus {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <23 18>; /* L位置 + O位置 */
+      bindings = <&kp MINUS>;
     };
 
     combo_fj_space {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <8 21>; /* F + J */
+      key-positions = <8 21>; /* F位置 + J位置 */
       bindings = <&kp SPACE>;
     };
 
     combo_nm_comma {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <25 26>; /* N + M */
+      key-positions = <25 26>; /* N位置 + M位置 */
       bindings = <&kp COMMA>;
     };
 
     combo_mslash_dot {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <26 27>; /* M + /? */
+      key-positions = <26 27>; /* M位置 + /?位置 */
       bindings = <&kp DOT>;
     };
 
     combo_qw_esc {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <0 1>; /* Q + W */
+      key-positions = <0 1>; /* Q位置 + W位置 */
       bindings = <&kp ESC>;
     };
 
     combo_aw_tab {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <5 1>; /* A + W */
+      key-positions = <5 1>; /* A位置 + W位置 */
       bindings = <&kp TAB>;
     };
 
     combo_zw_caps {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <10 1>; /* Z + W */
+      key-positions = <10 1>; /* Z位置 + W位置 */
       bindings = <&kp CAPS>;
     };
 
     combo_ui_kana {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <16 17>; /* U + I */
+      key-positions = <16 17>; /* U位置 + I位置 */
       bindings = <&kp LANG1>;
     };
 
     combo_er_eisu {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <2 3>; /* E + R */
+      key-positions = <2 3>; /* E位置 + R位置 */
       bindings = <&kp LANG2>;
     };
 
     combo_lslash_gui {
       timeout-ms = <40>;
       layers = <0>;
-      key-positions = <23 27>; /* L位置 + /? */
+      key-positions = <23 27>; /* L位置 + /?位置 */
       bindings = <&kp LGUI>;
     };
 
@@ -176,28 +183,28 @@
     combo_ghp_bt0 {
       timeout-ms = <50>;
       layers = <0 1 2 3 4>;
-      key-positions = <9 20 19>; /* G + H + P */
+      key-positions = <9 20 19>; /* G位置 + H位置 + P位置 */
       bindings = <&bt0_default>;
     };
 
     combo_ghl_bt1 {
       timeout-ms = <50>;
       layers = <0 1 2 3 4>;
-      key-positions = <9 20 23>; /* G + H + L位置 */
+      key-positions = <9 20 23>; /* G位置 + H位置 + L位置 */
       bindings = <&bt1_draw>;
     };
 
     combo_ghslash_bt2 {
       timeout-ms = <50>;
       layers = <0 1 2 3 4>;
-      key-positions = <9 20 27>; /* G + H + /? */
+      key-positions = <9 20 27>; /* G位置 + H位置 + /?位置 */
       bindings = <&bt2_default>;
     };
 
     combo_ghk_btclr {
       timeout-ms = <50>;
       layers = <0 1 2 3 4>;
-      key-positions = <9 20 22>; /* G + H + K */
+      key-positions = <9 20 22>; /* G位置 + H位置 + K位置 */
       bindings = <&bt BT_CLR>;
     };
 
@@ -205,7 +212,7 @@
     combo_draw_toggle {
       timeout-ms = <60>;
       layers = <0 4>;
-      key-positions = <9 20 14>; /* G + H + B */
+      key-positions = <9 20 14>; /* G位置 + H位置 + B位置 */
       bindings = <&tog 4>;
     };
   };
