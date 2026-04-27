@@ -215,6 +215,21 @@
       key-positions = <9 20 14>; /* G位置 + H位置 + B位置 */
       bindings = <&tog 4>;
     };
+
+    /* お絵描きモード専用 */
+    combo_draw_qw_esc {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <0 1>; /* Q位置 + W位置 */
+      bindings = <&kp ESC>;
+    };
+
+    combo_draw_er_enter {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <2 3>; /* E位置 + R位置 */
+      bindings = <&kp ENTER>;
+    };
   };
 
   keymap {
@@ -277,9 +292,9 @@
         &kp K                        &kp G                     &kp J                  &kp F                 &kp P
         &kp LSHIFT                   &kp LGUI                  &kp LALT               &kp SPACE             &kp I
         &kp X                        &kp O                     &kp U                  &kp Q                 &kp B
-        &kp Y                        &kp Z                     &kp M                  &none                 &none
-        &kp H                        &kp C                     &none                  &none                 &kp LC(TAB)
-        &kp N                        &none                     &none                  &kp TAB               &none
+        &kp Y                        &kp UP                    &kp M                  &kp C                 &kp DEL
+        &kp LEFT                     &kp DOWN                  &kp RIGHT              &kp ENTER             &kp LC(TAB)
+        &kp N                        &kp Z                     &none                  &kp TAB               &none
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
