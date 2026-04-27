@@ -172,32 +172,32 @@
       bindings = <&kp LGUI>;
     };
 
-    /* ナビレイヤー用BT */
-    combo_nav_op_bt1 {
-      timeout-ms = <40>;
-      layers = <3>;
-      key-positions = <18 19>; /* O + P */
+    /* 共通BLE切替 */
+    combo_ghp_bt0 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4>;
+      key-positions = <9 20 19>; /* G + H + P */
       bindings = <&bt0_default>;
     };
 
-    combo_nav_kl_bt2 {
-      timeout-ms = <40>;
-      layers = <3>;
-      key-positions = <22 23>; /* K + L位置 */
+    combo_ghl_bt1 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4>;
+      key-positions = <9 20 23>; /* G + H + L位置 */
       bindings = <&bt1_draw>;
     };
 
-    combo_nav_mslash_bt3 {
-      timeout-ms = <40>;
-      layers = <3>;
-      key-positions = <26 27>; /* M + /? */
+    combo_ghslash_bt2 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4>;
+      key-positions = <9 20 27>; /* G + H + /? */
       bindings = <&bt2_default>;
     };
 
-    combo_nav_plslash_btclr {
-      timeout-ms = <60>;
-      layers = <3>;
-      key-positions = <19 23 27>; /* P位置 + L位置 + /? */
+    combo_ghk_btclr {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4>;
+      key-positions = <9 20 22>; /* G + H + K */
       bindings = <&bt BT_CLR>;
     };
 
@@ -207,35 +207,6 @@
       layers = <0 4>;
       key-positions = <9 20 14>; /* G + H + B */
       bindings = <&tog 4>;
-    };
-
-    /* お絵描きモード用BT */
-    combo_draw_op_bt1 {
-      timeout-ms = <40>;
-      layers = <4>;
-      key-positions = <18 19>; /* O + P */
-      bindings = <&bt0_default>;
-    };
-
-    combo_draw_kl_bt2 {
-      timeout-ms = <40>;
-      layers = <4>;
-      key-positions = <22 23>; /* K + L位置 */
-      bindings = <&bt1_draw>;
-    };
-
-    combo_draw_mslash_bt3 {
-      timeout-ms = <40>;
-      layers = <4>;
-      key-positions = <26 27>; /* M + /? */
-      bindings = <&bt2_default>;
-    };
-
-    combo_draw_plslash_btclr {
-      timeout-ms = <60>;
-      layers = <4>;
-      key-positions = <19 23 27>; /* P位置 + L位置 + /? */
-      bindings = <&bt BT_CLR>;
     };
   };
 
