@@ -1,5 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/bt.h>
 
@@ -23,10 +24,11 @@
       bindings = <&kp>, <&kp>;
     };
 
-    scroll_encoder: scroll_encoder {
+    encoder_msc_down_up: encoder_msc_down_up {
       compatible = "zmk,behavior-sensor-rotate";
       #sensor-binding-cells = <0>;
-      bindings = <&scroll_down_once>, <&scroll_up_once>;
+      bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+      tap-ms = <20>;
     };
 
     f_nav_hold: f_nav_hold {
@@ -96,24 +98,6 @@
       wait-ms = <0>;
       tap-ms = <0>;
       bindings = <&bt BT_SEL 4>, <&to 0>;
-    };
-  };
-
-  macros {
-    scroll_down_once: scroll_down_once {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <30>;
-      bindings = <&msc SCRL_DOWN>;
-    };
-
-    scroll_up_once: scroll_up_once {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <30>;
-      bindings = <&msc SCRL_UP>;
     };
   };
 
@@ -187,7 +171,7 @@
         &kp SPACE                    &kp UNDER                 &kp QMARK              &trans                &trans
       >;
 
-      sensor-bindings = <&scroll_encoder>;
+      sensor-bindings = <&encoder_msc_down_up>;
     };
 
     number_layer {
