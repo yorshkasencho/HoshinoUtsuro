@@ -2,7 +2,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
 
 / {
   behaviors {
@@ -57,7 +56,7 @@
       bindings = <&mo>, <&kp>;
     };
 
-    /* BLE切替 + BLE出力固定 + モード確定 */
+    /* BLE切替 + モード確定 */
     bt0_default: bt0_default {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
@@ -65,7 +64,6 @@
       tap-ms = <0>;
       bindings =
         <&bt BT_SEL 0>,
-        <&out OUT_BLE>,
         <&to 0>;
     };
 
@@ -76,7 +74,6 @@
       tap-ms = <0>;
       bindings =
         <&bt BT_SEL 1>,
-        <&out OUT_BLE>,
         <&to 4>;
     };
 
@@ -87,7 +84,26 @@
       tap-ms = <0>;
       bindings =
         <&bt BT_SEL 2>,
-        <&out OUT_BLE>,
+        <&to 0>;
+    };
+
+    bt3_default: bt3_default {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings =
+        <&bt BT_SEL 3>,
+        <&to 0>;
+    };
+
+    bt4_default: bt4_default {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings =
+        <&bt BT_SEL 4>,
         <&to 0>;
     };
   };
@@ -179,6 +195,91 @@
       bindings = <&kp LGUI>;
     };
 
+    /* 追加: デフォルトレイヤー数字コンボ */
+    combo_qa_1 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <0 5>; /* Q + A */
+      bindings = <&kp N1>;
+    };
+
+    combo_ws_2 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <1 6>; /* W + S */
+      bindings = <&kp N2>;
+    };
+
+    combo_ed_3 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <2 7>; /* E + D */
+      bindings = <&kp N3>;
+    };
+
+    combo_rf_dot {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <3 8>; /* R + F */
+      bindings = <&kp DOT>;
+    };
+
+    combo_az_4 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <5 10>; /* A + Z */
+      bindings = <&kp N4>;
+    };
+
+    combo_sx_5 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <6 11>; /* S + X */
+      bindings = <&kp N5>;
+    };
+
+    combo_dc_6 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <7 12>; /* D + C */
+      bindings = <&kp N6>;
+    };
+
+    combo_fv_0 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <8 13>; /* F + V */
+      bindings = <&kp N0>;
+    };
+
+    combo_zq_7 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <10 0>; /* Z + Q */
+      bindings = <&kp N7>;
+    };
+
+    combo_xw_8 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <11 1>; /* X + W */
+      bindings = <&kp N8>;
+    };
+
+    combo_ce_9 {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <12 2>; /* C + E */
+      bindings = <&kp N9>;
+    };
+
+    combo_vr_comma {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <13 3>; /* V + R */
+      bindings = <&kp COMMA>;
+    };
+
     /* 共通BLE切替 */
     combo_ghp_bt0 {
       timeout-ms = <50>;
@@ -199,6 +300,20 @@
       layers = <0 1 2 3 4>;
       key-positions = <9 20 27>; /* G位置 + H位置 + /?位置 */
       bindings = <&bt2_default>;
+    };
+
+    combo_gho_bt3 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4>;
+      key-positions = <9 20 18>; /* G位置 + H位置 + O位置 */
+      bindings = <&bt3_default>;
+    };
+
+    combo_ghm_bt4 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4>;
+      key-positions = <9 20 26>; /* G位置 + H位置 + M位置 */
+      bindings = <&bt4_default>;
     };
 
     combo_ghk_btclr {
