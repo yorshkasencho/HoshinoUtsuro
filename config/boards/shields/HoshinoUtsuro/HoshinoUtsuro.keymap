@@ -14,7 +14,6 @@
       bindings = <&kp>, <&kp>;
     };
 
-    /* 修飾キー用: 120ms */
     alt_mt_fast: alt_mt_fast {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -24,7 +23,12 @@
       bindings = <&kp>, <&kp>;
     };
 
-    /* F長押しでナビ */
+    scroll_encoder: scroll_encoder {
+      compatible = "zmk,behavior-sensor-rotate-var";
+      #sensor-binding-cells = <2>;
+      bindings = <&msc>, <&msc>;
+    };
+
     f_nav_hold: f_nav_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -35,7 +39,6 @@
       bindings = <&mo>, <&kp>;
     };
 
-    /* L位置キー長押しで記号 */
     l_sym_hold: l_sym_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -46,7 +49,6 @@
       bindings = <&mo>, <&kp>;
     };
 
-    /* /? 長押しで数字レイヤー */
     slash_num_hold: slash_num_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -56,15 +58,12 @@
       bindings = <&mo>, <&kp>;
     };
 
-    /* BLE切替 + モード確定 */
     bt0_default: bt0_default {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings =
-        <&bt BT_SEL 0>,
-        <&to 0>;
+      bindings = <&bt BT_SEL 0>, <&to 0>;
     };
 
     bt1_draw: bt1_draw {
@@ -72,9 +71,7 @@
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings =
-        <&bt BT_SEL 1>,
-        <&to 4>;
+      bindings = <&bt BT_SEL 1>, <&to 4>;
     };
 
     bt2_default: bt2_default {
@@ -82,9 +79,7 @@
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings =
-        <&bt BT_SEL 2>,
-        <&to 0>;
+      bindings = <&bt BT_SEL 2>, <&to 0>;
     };
 
     bt3_default: bt3_default {
@@ -92,9 +87,7 @@
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings =
-        <&bt BT_SEL 3>,
-        <&to 0>;
+      bindings = <&bt BT_SEL 3>, <&to 0>;
     };
 
     bt4_default: bt4_default {
@@ -102,264 +95,52 @@
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings =
-        <&bt BT_SEL 4>,
-        <&to 0>;
+      bindings = <&bt BT_SEL 4>, <&to 0>;
     };
   };
 
   combos {
     compatible = "zmk,combos";
 
-    combo_op_p {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <18 19>; /* O位置 + P位置 */
-      bindings = <&kp P>;
-    };
+    combo_op_p { timeout-ms = <40>; layers = <0>; key-positions = <18 19>; bindings = <&kp P>; };
+    combo_kl_l { timeout-ms = <40>; layers = <0>; key-positions = <22 23>; bindings = <&kp L>; };
+    combo_lo_minus { timeout-ms = <40>; layers = <0>; key-positions = <23 18>; bindings = <&kp MINUS>; };
+    combo_fj_space { timeout-ms = <40>; layers = <0>; key-positions = <8 21>; bindings = <&kp SPACE>; };
+    combo_nm_comma { timeout-ms = <40>; layers = <0>; key-positions = <25 26>; bindings = <&kp COMMA>; };
+    combo_mslash_dot { timeout-ms = <40>; layers = <0>; key-positions = <26 27>; bindings = <&kp DOT>; };
+    combo_qw_esc { timeout-ms = <40>; layers = <0>; key-positions = <0 1>; bindings = <&kp ESC>; };
+    combo_aw_tab { timeout-ms = <40>; layers = <0>; key-positions = <5 1>; bindings = <&kp TAB>; };
+    combo_zw_caps { timeout-ms = <40>; layers = <0>; key-positions = <10 1>; bindings = <&kp CAPS>; };
+    combo_ui_kana { timeout-ms = <40>; layers = <0>; key-positions = <16 17>; bindings = <&kp LANG1>; };
+    combo_er_eisu { timeout-ms = <40>; layers = <0>; key-positions = <2 3>; bindings = <&kp LANG2>; };
 
-    combo_kl_l {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <22 23>; /* K位置 + L位置 */
-      bindings = <&kp L>;
-    };
+    combo_xc_ctrl { timeout-ms = <40>; layers = <0>; key-positions = <11 12>; bindings = <&kp LCTRL>; };
+    combo_zc_alt { timeout-ms = <40>; layers = <0>; key-positions = <10 12>; bindings = <&kp LALT>; };
+    combo_zx_gui { timeout-ms = <40>; layers = <0>; key-positions = <10 11>; bindings = <&kp LGUI>; };
 
-    combo_lo_minus {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <23 18>; /* L位置 + O位置 */
-      bindings = <&kp MINUS>;
-    };
+    combo_qa_1 { timeout-ms = <40>; layers = <0>; key-positions = <0 5>; bindings = <&kp N1>; };
+    combo_ws_2 { timeout-ms = <40>; layers = <0>; key-positions = <1 6>; bindings = <&kp N2>; };
+    combo_ed_3 { timeout-ms = <40>; layers = <0>; key-positions = <2 7>; bindings = <&kp N3>; };
+    combo_rf_dot { timeout-ms = <40>; layers = <0>; key-positions = <3 8>; bindings = <&kp DOT>; };
+    combo_az_4 { timeout-ms = <40>; layers = <0>; key-positions = <5 10>; bindings = <&kp N4>; };
+    combo_sx_5 { timeout-ms = <40>; layers = <0>; key-positions = <6 11>; bindings = <&kp N5>; };
+    combo_dc_6 { timeout-ms = <40>; layers = <0>; key-positions = <7 12>; bindings = <&kp N6>; };
+    combo_fv_0 { timeout-ms = <40>; layers = <0>; key-positions = <8 13>; bindings = <&kp N0>; };
+    combo_zq_7 { timeout-ms = <40>; layers = <0>; key-positions = <10 0>; bindings = <&kp N7>; };
+    combo_xw_8 { timeout-ms = <40>; layers = <0>; key-positions = <11 1>; bindings = <&kp N8>; };
+    combo_ce_9 { timeout-ms = <40>; layers = <0>; key-positions = <12 2>; bindings = <&kp N9>; };
+    combo_vr_comma { timeout-ms = <40>; layers = <0>; key-positions = <13 3>; bindings = <&kp COMMA>; };
 
-    combo_fj_space {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <8 21>; /* F位置 + J位置 */
-      bindings = <&kp SPACE>;
-    };
+    combo_ghp_bt0 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 19>; bindings = <&bt0_default>; };
+    combo_ghl_bt1 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 23>; bindings = <&bt1_draw>; };
+    combo_ghslash_bt2 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 27>; bindings = <&bt2_default>; };
+    combo_gho_bt3 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 18>; bindings = <&bt3_default>; };
+    combo_ghm_bt4 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 26>; bindings = <&bt4_default>; };
+    combo_ghk_btclr { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 22>; bindings = <&bt BT_CLR>; };
 
-    combo_nm_comma {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <25 26>; /* N位置 + M位置 */
-      bindings = <&kp COMMA>;
-    };
-
-    combo_mslash_dot {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <26 27>; /* M位置 + /?位置 */
-      bindings = <&kp DOT>;
-    };
-
-    combo_qw_esc {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <0 1>; /* Q位置 + W位置 */
-      bindings = <&kp ESC>;
-    };
-
-    combo_aw_tab {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <5 1>; /* A位置 + W位置 */
-      bindings = <&kp TAB>;
-    };
-
-    combo_zw_caps {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <10 1>; /* Z位置 + W位置 */
-      bindings = <&kp CAPS>;
-    };
-
-    combo_ui_kana {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <16 17>; /* U位置 + I位置 */
-      bindings = <&kp LANG1>;
-    };
-
-    combo_er_eisu {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <2 3>; /* E位置 + R位置 */
-      bindings = <&kp LANG2>;
-    };
-
-    /* 新規: 修飾コンボ */
-    combo_xc_ctrl {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <11 12>; /* X位置 + C位置 */
-      bindings = <&kp LCTRL>;
-    };
-
-    combo_zc_alt {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <10 12>; /* Z位置 + C位置 */
-      bindings = <&kp LALT>;
-    };
-
-    combo_zx_gui {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <10 11>; /* Z位置 + X位置 */
-      bindings = <&kp LGUI>;
-    };
-
-    /* デフォルトレイヤー数字コンボ */
-    combo_qa_1 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <0 5>; /* Q + A */
-      bindings = <&kp N1>;
-    };
-
-    combo_ws_2 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <1 6>; /* W + S */
-      bindings = <&kp N2>;
-    };
-
-    combo_ed_3 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <2 7>; /* E + D */
-      bindings = <&kp N3>;
-    };
-
-    combo_rf_dot {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <3 8>; /* R + F */
-      bindings = <&kp DOT>;
-    };
-
-    combo_az_4 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <5 10>; /* A + Z */
-      bindings = <&kp N4>;
-    };
-
-    combo_sx_5 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <6 11>; /* S + X */
-      bindings = <&kp N5>;
-    };
-
-    combo_dc_6 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <7 12>; /* D + C */
-      bindings = <&kp N6>;
-    };
-
-    combo_fv_0 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <8 13>; /* F + V */
-      bindings = <&kp N0>;
-    };
-
-    combo_zq_7 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <10 0>; /* Z + Q */
-      bindings = <&kp N7>;
-    };
-
-    combo_xw_8 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <11 1>; /* X + W */
-      bindings = <&kp N8>;
-    };
-
-    combo_ce_9 {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <12 2>; /* C + E */
-      bindings = <&kp N9>;
-    };
-
-    combo_vr_comma {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <13 3>; /* V + R */
-      bindings = <&kp COMMA>;
-    };
-
-    /* 共通BLE切替 */
-    combo_ghp_bt0 {
-      timeout-ms = <50>;
-      layers = <0 1 2 3 4>;
-      key-positions = <9 20 19>; /* G位置 + H位置 + P位置 */
-      bindings = <&bt0_default>;
-    };
-
-    combo_ghl_bt1 {
-      timeout-ms = <50>;
-      layers = <0 1 2 3 4>;
-      key-positions = <9 20 23>; /* G位置 + H位置 + L位置 */
-      bindings = <&bt1_draw>;
-    };
-
-    combo_ghslash_bt2 {
-      timeout-ms = <50>;
-      layers = <0 1 2 3 4>;
-      key-positions = <9 20 27>; /* G位置 + H位置 + /?位置 */
-      bindings = <&bt2_default>;
-    };
-
-    combo_gho_bt3 {
-      timeout-ms = <50>;
-      layers = <0 1 2 3 4>;
-      key-positions = <9 20 18>; /* G位置 + H位置 + O位置 */
-      bindings = <&bt3_default>;
-    };
-
-    combo_ghm_bt4 {
-      timeout-ms = <50>;
-      layers = <0 1 2 3 4>;
-      key-positions = <9 20 26>; /* G位置 + H位置 + M位置 */
-      bindings = <&bt4_default>;
-    };
-
-    combo_ghk_btclr {
-      timeout-ms = <50>;
-      layers = <0 1 2 3 4>;
-      key-positions = <9 20 22>; /* G位置 + H位置 + K位置 */
-      bindings = <&bt BT_CLR>;
-    };
-
-    /* お絵描きモード トグル */
-    combo_draw_toggle {
-      timeout-ms = <60>;
-      layers = <0 4>;
-      key-positions = <9 20 14>; /* G位置 + H位置 + B位置 */
-      bindings = <&tog 4>;
-    };
-
-    /* お絵描きモード専用 */
-    combo_draw_qw_esc {
-      timeout-ms = <40>;
-      layers = <4>;
-      key-positions = <0 1>; /* Q位置 + W位置 */
-      bindings = <&kp ESC>;
-    };
-
-    combo_draw_er_enter {
-      timeout-ms = <40>;
-      layers = <4>;
-      key-positions = <2 3>; /* E位置 + R位置 */
-      bindings = <&kp ENTER>;
-    };
+    combo_draw_toggle { timeout-ms = <60>; layers = <0 4>; key-positions = <9 20 14>; bindings = <&tog 4>; };
+    combo_draw_qw_esc { timeout-ms = <40>; layers = <4>; key-positions = <0 1>; bindings = <&kp ESC>; };
+    combo_draw_er_enter { timeout-ms = <40>; layers = <4>; key-positions = <2 3>; bindings = <&kp ENTER>; };
   };
 
   keymap {
@@ -388,7 +169,7 @@
         &kp SPACE                    &kp UNDER                 &kp QMARK              &trans                &trans
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+      sensor-bindings = <&scroll_encoder SCRL_DOWN SCRL_UP>;
     };
 
     number_layer {
