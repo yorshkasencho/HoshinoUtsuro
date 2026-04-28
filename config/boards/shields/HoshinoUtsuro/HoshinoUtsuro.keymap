@@ -154,8 +154,8 @@
         &kp A                        &kp S                     &kp D                  &f_nav_hold 3 F       &kp G
         &modtap_hp LCTRL Z           &modtap_hp LALT X         &modtap_hp LGUI C      &modtap_hp LALT V     &kp B
         &kp Y                        &kp U                     &kp I                  &kp O                 &kp BSPC
-        &kp H                        &kp J                     &kp K                  &l_sym_hold 1 ENTER   &kp ENTER
-        &kp N                        &kp M                     &slash_num_hold 2 FSLH &kp SPACE             &kp C_MUTE
+        &kp H                        &kp J                     &kp K                  &l_sym_hold 1 ENTER   &kp LC(LS(Z))
+        &kp N                        &kp M                     &slash_num_hold 2 FSLH &kp LC(Z)             &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
