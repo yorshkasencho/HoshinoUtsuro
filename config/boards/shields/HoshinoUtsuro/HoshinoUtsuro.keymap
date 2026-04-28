@@ -23,22 +23,6 @@
       bindings = <&kp>, <&kp>;
     };
 
-    scroll_down_once: scroll_down_once {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <30>;
-      bindings = <&msc SCRL_DOWN>;
-    };
-
-    scroll_up_once: scroll_up_once {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <30>;
-      bindings = <&msc SCRL_UP>;
-    };
-
     scroll_encoder: scroll_encoder {
       compatible = "zmk,behavior-sensor-rotate";
       #sensor-binding-cells = <0>;
@@ -112,6 +96,24 @@
       wait-ms = <0>;
       tap-ms = <0>;
       bindings = <&bt BT_SEL 4>, <&to 0>;
+    };
+  };
+
+  macros {
+    scroll_down_once: scroll_down_once {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <30>;
+      bindings = <&msc SCRL_DOWN>;
+    };
+
+    scroll_up_once: scroll_up_once {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <30>;
+      bindings = <&msc SCRL_UP>;
     };
   };
 
