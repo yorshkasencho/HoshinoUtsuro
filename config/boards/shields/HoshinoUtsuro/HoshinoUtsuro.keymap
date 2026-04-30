@@ -12,16 +12,6 @@
       flavor = "tap-preferred";
       tapping-term-ms = <120>;
       quick-tap-ms = <0>;
-      require-prior-idle-ms = <120>;
-      bindings = <&kp>, <&kp>;
-    };
-
-    alt_mt_fast: alt_mt_fast {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "tap-preferred";
-      tapping-term-ms = <120>;
-      quick-tap-ms = <0>;
       bindings = <&kp>, <&kp>;
     };
 
