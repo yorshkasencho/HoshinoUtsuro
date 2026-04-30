@@ -24,6 +24,15 @@
       bindings = <&kp>, <&kp>;
     };
 
+    a_shift_hold: a_shift_hold {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <200>;
+      quick-tap-ms = <0>;
+      bindings = <&kp>, <&kp>;
+    };
+
     encoder_msc_down_up: encoder_msc_down_up {
       compatible = "zmk,behavior-sensor-rotate";
       #sensor-binding-cells = <0>;
@@ -151,7 +160,7 @@
     default_layer {
       bindings = <
         &modtap_hp LSHIFT Q          &kp W                     &kp E                  &kp R                 &kp T
-        &kp A                        &kp S                     &kp D                  &f_nav_hold 3 F       &kp G
+        &a_shift_hold LSHIFT A       &kp S                     &kp D                  &f_nav_hold 3 F       &kp G
         &z_ctrl_hold LCTRL Z         &modtap_hp LALT X         &modtap_hp LGUI C      &modtap_hp LALT V     &kp B
         &kp Y                        &kp U                     &kp I                  &kp O                 &kp BSPC
         &kp H                        &kp J                     &kp K                  &l_sym_hold 1 ENTER   &kp ENTER
