@@ -267,8 +267,8 @@
         &kp LG(LS(S))                &kp UP                    &kp HOME               &trans                &trans
         &kp LEFT                     &kp DOWN                  &kp RIGHT              &kp HOME              &trans
         &kp INS                      &kp LS(TAB)               &kp LS(LC(TAB))        &kp TAB               &kp LC(TAB)
-        &trans                       &trans                  　&trans                 &trans                &kp DEL
-        &trans                       &trans                  　&trans               　&trans                &kp LC(LS(Z))
+        &trans                       &trans                    &trans                 &trans                &kp DEL
+        &trans                       &trans                    &trans                 &trans                &kp LC(LS(Z))
         &trans                       &trans                    &trans                 &kp LC(Z)             &trans
       >;
 
