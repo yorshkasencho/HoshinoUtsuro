@@ -1,6 +1,0 @@
-# SPDX-License-Identifier: MIT
-
-config ZMK_BEHAVIOR_BATTERY_LED
-    bool "Battery LED behavior"
-    default y
-    depends on ZMK
