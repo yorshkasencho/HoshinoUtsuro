@@ -153,8 +153,11 @@
     combo_nm_comma { timeout-ms = <40>; layers = <0>; key-positions = <25 26>; bindings = <&kp COMMA>; };
     combo_mslash_dot { timeout-ms = <40>; layers = <0>; key-positions = <26 27>; bindings = <&kp DOT>; };
     combo_qw_esc { timeout-ms = <40>; layers = <0>; key-positions = <0 1>; bindings = <&kp ESC>; };
-    combo_aw_tab { timeout-ms = <40>; layers = <0>; key-positions = <5 1>; bindings = <&kp TAB>; };
-    combo_zw_caps { timeout-ms = <40>; layers = <0>; key-positions = <10 1>; bindings = <&kp CAPS>; };
+    combo_as_tab { timeout-ms = <40>; layers = <0>; key-positions = <5 6>; bindings = <&kp TAB>; };
+
+    combo_pl_ctrl { timeout-ms = <40>; layers = <0>; key-positions = <19 23>; bindings = <&kp LCTRL>; };
+    combo_lslash_alt { timeout-ms = <40>; layers = <0>; key-positions = <23 27>; bindings = <&kp LALT>; };
+    combo_pslash_gui { timeout-ms = <40>; layers = <0>; key-positions = <19 27>; bindings = <&kp LGUI>; };
     
     combo_ui_kana {
       timeout-ms = <40>;
