@@ -41,6 +41,13 @@
     sensors = <&encoder0>;
     triggers-per-rotation = <24>;
   };
+
+  behaviors {
+    bat_led: battery_led {
+      compatible = "zmk,behavior-battery-led";
+      #binding-cells = <0>;
+    };
+  };
 };
 
 &xiao_serial {
