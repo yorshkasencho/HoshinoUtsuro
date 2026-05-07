@@ -31,13 +31,6 @@
       bindings = <&kp>, <&kp>;
     };
 
-    encoder_msc_down_up: encoder_msc_down_up {
-      compatible = "zmk,behavior-sensor-rotate";
-      #sensor-binding-cells = <0>;
-      bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-      tap-ms = <20>;
-    };
-
     f_nav_hold: f_nav_hold {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -253,7 +246,7 @@
         &kp SPACE                    &kp UNDER                 &kp QMARK              &kp LC(Z)             &trans
       >;
 
-      sensor-bindings = <&encoder_msc_down_up>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     number_layer {
