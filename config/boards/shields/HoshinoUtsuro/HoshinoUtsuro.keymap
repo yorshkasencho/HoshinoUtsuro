@@ -155,8 +155,20 @@
     combo_qw_esc { timeout-ms = <40>; layers = <0>; key-positions = <0 1>; bindings = <&kp ESC>; };
     combo_aw_tab { timeout-ms = <40>; layers = <0>; key-positions = <5 1>; bindings = <&kp TAB>; };
     combo_zw_caps { timeout-ms = <40>; layers = <0>; key-positions = <10 1>; bindings = <&kp CAPS>; };
-    combo_ui_kana { timeout-ms = <40>; layers = <0>; key-positions = <16 17>; bindings = <&kp LANG1>; };
-    combo_er_eisu { timeout-ms = <40>; layers = <0>; key-positions = <2 3>; bindings = <&kp LANG2>; };
+    
+    combo_ui_kana {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <16 17>;
+      bindings = <&kana_led>;
+    };
+
+    combo_er_eisu {
+      timeout-ms = <40>;
+      layers = <0>;
+      key-positions = <2 3>;
+      bindings = <&eisu_led>;
+    };
 
     combo_xc_ctrl { timeout-ms = <40>; layers = <0>; key-positions = <11 12>; bindings = <&kp LCTRL>; };
     combo_zc_alt { timeout-ms = <40>; layers = <0>; key-positions = <10 12>; bindings = <&kp LALT>; };
@@ -183,24 +195,31 @@
     combo_ghk_btclr { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 22>; bindings = <&bt BT_CLR>; };
 
     combo_ghv_battery_led {
-  timeout-ms = <60>;
-  layers = <0 1 2 3 4>;
-  key-positions = <9 20 13>;
-  bindings = <&bat_led>;
-};
+      timeout-ms = <60>;
+      layers = <0 1 2 3 4>;
+      key-positions = <9 20 13>;
+      bindings = <&bat_led 0>;
+    };
+
+    combo_ghc_led_check {
+      timeout-ms = <60>;
+      layers = <0 1 2 3 4>;
+      key-positions = <9 20 12>;
+      bindings = <&bat_led 1>;
+    };
 
     combo_ghb_draw {
       timeout-ms = <60>;
       layers = <0 1 2 3 4>;
       key-positions = <9 20 14>;
-      bindings = <&to 4>;
+      bindings = <&draw_mode_led>;
     };
 
     combo_ghn_default {
       timeout-ms = <60>;
       layers = <0 1 2 3 4>;
       key-positions = <9 20 25>;
-      bindings = <&to 0>;
+      bindings = <&default_mode_led>;
     };
 
     combo_draw_qw_esc { timeout-ms = <40>; layers = <4>; key-positions = <0 1>; bindings = <&kp ESC>; };
