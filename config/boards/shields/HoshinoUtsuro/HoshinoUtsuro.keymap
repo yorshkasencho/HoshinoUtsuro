@@ -108,6 +108,39 @@
       tap-ms = <0>;
       bindings = <&bt BT_SEL 4>, <&to 0>;
     };
+
+    draw_mode_led: draw_mode_led {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&bat_led 2>, <&to 4>;
+    };
+
+    default_mode_led: default_mode_led {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&bat_led 3>, <&to 0>;
+    };
+
+    kana_led: kana_led {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&bat_led 4>, <&kp LANG1>;
+    };
+
+    eisu_led: eisu_led {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&bat_led 5>, <&kp LANG2>;
+    };
+
   };
 
   combos {
