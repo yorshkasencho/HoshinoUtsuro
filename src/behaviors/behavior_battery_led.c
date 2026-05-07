@@ -1,3 +1,5 @@
+#error "behavior_battery_led.c is compiled"
+
 #include <zephyr/device.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/kernel.h>
