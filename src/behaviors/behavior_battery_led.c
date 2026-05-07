@@ -12,13 +12,13 @@
  * XIAO nRF52840 onboard RGB USER LED test
  *
  * Zephyr board definition:
- *   led0 / Red   = P0.26
- *   led1 / Green = P0.30
- *   led2 / Blue  = P0.06
+ *   led0 / Red   = P0.26 GPIO_ACTIVE_LOW
+ *   led1 / Green = P0.30 GPIO_ACTIVE_LOW
+ *   led2 / Blue  = P0.06 GPIO_ACTIVE_LOW
  *
- * XIAO onboard RGB LED is active-low:
- *   0 = ON
- *   1 = OFF
+ * gpio_pin_set_dt() respects GPIO_ACTIVE_LOW:
+ *   logical 1 = ON
+ *   logical 0 = OFF
  */
 
 static const struct gpio_dt_spec led_red = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
@@ -29,30 +29,30 @@ static struct k_work_delayable led_work;
 static int step = 0;
 
 static void all_off(void) {
-    gpio_pin_set_dt(&led_red, 1);
-    gpio_pin_set_dt(&led_green, 1);
-    gpio_pin_set_dt(&led_blue, 1);
+    gpio_pin_set_dt(&led_red, 0);
+    gpio_pin_set_dt(&led_green, 0);
+    gpio_pin_set_dt(&led_blue, 0);
 }
 
 static void show_red(void) {
     all_off();
-    gpio_pin_set_dt(&led_red, 0);
+    gpio_pin_set_dt(&led_red, 1);
 }
 
 static void show_green(void) {
     all_off();
-    gpio_pin_set_dt(&led_green, 0);
+    gpio_pin_set_dt(&led_green, 1);
 }
 
 static void show_blue(void) {
     all_off();
-    gpio_pin_set_dt(&led_blue, 0);
+    gpio_pin_set_dt(&led_blue, 1);
 }
 
 static void show_yellow(void) {
     all_off();
-    gpio_pin_set_dt(&led_red, 0);
-    gpio_pin_set_dt(&led_green, 0);
+    gpio_pin_set_dt(&led_red, 1);
+    gpio_pin_set_dt(&led_green, 1);
 }
 
 static void led_work_handler(struct k_work *work) {
