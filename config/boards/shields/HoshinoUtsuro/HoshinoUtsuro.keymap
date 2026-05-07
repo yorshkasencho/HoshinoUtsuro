@@ -149,7 +149,12 @@
     combo_ghm_bt4 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 26>; bindings = <&bt4_default>; };
     combo_ghk_btclr { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 22>; bindings = <&bt BT_CLR>; };
 
-    combo_ghv_battery_led { timeout-ms = <60>; layers = <0 1 2 3 4>; key-positions = <9 20 13>; bindings = <&to 4>; };
+    combo_ghv_battery_led {
+  timeout-ms = <60>;
+  layers = <0 1 2 3 4>;
+  key-positions = <9 20 13>;
+  bindings = <&bat_led>;
+};
 
     combo_ghb_draw {
       timeout-ms = <60>;
