@@ -243,11 +243,11 @@ static int on_keymap_binding_pressed(struct zmk_behavior_binding *binding,
         break;
 
     case LED_MODE_DRAW:
-        start_pattern(LED_PATTERN_TRIPLE, LED_COLOR_CYAN);
+        start_pattern(LED_PATTERN_TRIPLE, LED_COLOR_WHITE);
         break;
 
     case LED_MODE_DEFAULT:
-        start_pattern(LED_PATTERN_TRIPLE, LED_COLOR_WHITE);
+        start_pattern(LED_PATTERN_TRIPLE, LED_COLOR_GREEN);
         break;
 
     case LED_MODE_KANA:
