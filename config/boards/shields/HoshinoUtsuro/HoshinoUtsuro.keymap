@@ -1,5 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/bt.h>
 
 / {
@@ -29,6 +31,13 @@
       tapping-term-ms = <200>;
       quick-tap-ms = <0>;
       bindings = <&kp>, <&kp>;
+    };
+
+    encoder_msc_down_up: encoder_msc_down_up {
+      compatible = "zmk,behavior-sensor-rotate";
+      #sensor-binding-cells = <0>;
+      bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+      tap-ms = <20>;
     };
 
     f_nav_hold: f_nav_hold {
@@ -99,39 +108,6 @@
       tap-ms = <0>;
       bindings = <&bt BT_SEL 4>, <&to 0>;
     };
-
-    draw_mode_led: draw_mode_led {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <0>;
-      bindings = <&bat_led 2>, <&to 4>;
-    };
-
-    default_mode_led: default_mode_led {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <0>;
-      bindings = <&bat_led 3>, <&to 0>;
-    };
-
-    kana_led: kana_led {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <0>;
-      bindings = <&bat_led 4>, <&kp LANG1>;
-    };
-
-    eisu_led: eisu_led {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <0>;
-      bindings = <&bat_led 5>, <&kp LANG2>;
-    };
-
   };
 
   combos {
@@ -144,25 +120,10 @@
     combo_nm_comma { timeout-ms = <40>; layers = <0>; key-positions = <25 26>; bindings = <&kp COMMA>; };
     combo_mslash_dot { timeout-ms = <40>; layers = <0>; key-positions = <26 27>; bindings = <&kp DOT>; };
     combo_qw_esc { timeout-ms = <40>; layers = <0>; key-positions = <0 1>; bindings = <&kp ESC>; };
-    combo_as_tab { timeout-ms = <40>; layers = <0>; key-positions = <5 6>; bindings = <&kp TAB>; };
-
-    combo_pl_ctrl { timeout-ms = <40>; layers = <0>; key-positions = <19 23>; bindings = <&kp LCTRL>; };
-    combo_lslash_alt { timeout-ms = <40>; layers = <0>; key-positions = <23 27>; bindings = <&kp LALT>; };
-    combo_pslash_gui { timeout-ms = <40>; layers = <0>; key-positions = <19 27>; bindings = <&kp LGUI>; };
-    
-    combo_ui_kana {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <16 17>;
-      bindings = <&kana_led>;
-    };
-
-    combo_er_eisu {
-      timeout-ms = <40>;
-      layers = <0>;
-      key-positions = <2 3>;
-      bindings = <&eisu_led>;
-    };
+    combo_aw_tab { timeout-ms = <40>; layers = <0>; key-positions = <5 1>; bindings = <&kp TAB>; };
+    combo_zw_caps { timeout-ms = <40>; layers = <0>; key-positions = <10 1>; bindings = <&kp CAPS>; };
+    combo_ui_kana { timeout-ms = <40>; layers = <0>; key-positions = <16 17>; bindings = <&kp LANG1>; };
+    combo_er_eisu { timeout-ms = <40>; layers = <0>; key-positions = <2 3>; bindings = <&kp LANG2>; };
 
     combo_xc_ctrl { timeout-ms = <40>; layers = <0>; key-positions = <11 12>; bindings = <&kp LCTRL>; };
     combo_zc_alt { timeout-ms = <40>; layers = <0>; key-positions = <10 12>; bindings = <&kp LALT>; };
@@ -186,38 +147,55 @@
     combo_ghslash_bt2 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 27>; bindings = <&bt2_default>; };
     combo_gho_bt3 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 18>; bindings = <&bt3_default>; };
     combo_ghm_bt4 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 26>; bindings = <&bt4_default>; };
-    combo_ghk_btclr { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 22>; bindings = <&bt BT_CLR>; };
 
-    combo_ghv_battery_led {
-      timeout-ms = <60>;
+    combo_ghq_btclr {
+      timeout-ms = <50>;
       layers = <0 1 2 3 4>;
-      key-positions = <9 20 13>;
-      bindings = <&bat_led 0>;
-    };
-
-    combo_ghc_led_check {
-      timeout-ms = <60>;
-      layers = <0 1 2 3 4>;
-      key-positions = <9 20 12>;
-      bindings = <&bat_led 1>;
+      key-positions = <9 20 0>;
+      bindings = <&bt BT_CLR>;
     };
 
     combo_ghb_draw {
       timeout-ms = <60>;
       layers = <0 1 2 3 4>;
       key-positions = <9 20 14>;
-      bindings = <&draw_mode_led>;
+      bindings = <&to 4>;
     };
 
     combo_ghn_default {
       timeout-ms = <60>;
       layers = <0 1 2 3 4>;
       key-positions = <9 20 25>;
-      bindings = <&default_mode_led>;
+      bindings = <&to 0>;
     };
 
-    combo_draw_qw_esc { timeout-ms = <40>; layers = <4>; key-positions = <0 1>; bindings = <&kp ESC>; };
-    combo_draw_er_enter { timeout-ms = <40>; layers = <4>; key-positions = <2 3>; bindings = <&kp ENTER>; };
+    combo_draw_qw_esc {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <0 1>;
+      bindings = <&kp ESC>;
+    };
+
+    combo_draw_er_enter {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <2 3>;
+      bindings = <&kp ENTER>;
+    };
+
+    combo_draw_zx_b {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <10 11>;
+      bindings = <&kp B>;
+    };
+
+    combo_draw_cv_c {
+      timeout-ms = <40>;
+      layers = <4>;
+      key-positions = <12 13>;
+      bindings = <&kp C>;
+    };
   };
 
   keymap {
@@ -229,8 +207,8 @@
         &a_shift_hold LSHIFT A       &kp S                     &kp D                  &f_nav_hold 3 F       &kp G
         &z_ctrl_hold LCTRL Z         &modtap_hp LALT X         &modtap_hp LGUI C      &modtap_hp LALT V     &kp B
         &kp Y                        &kp U                     &kp I                  &kp O                 &kp BSPC
-        &kp H                        &kp J                     &kp K                  &l_sym_hold 1 ENTER   &kp LC(LS(Z))
-        &kp N                        &kp M                     &slash_num_hold 2 FSLH &kp LC(Z)             &kp C_MUTE
+        &kp H                        &kp J                     &kp K                  &l_sym_hold 1 ENTER   &kp LGUI
+        &kp N                        &kp M                     &slash_num_hold 2 FSLH &kp LALT              &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -242,11 +220,11 @@
         &kp LS(N8)                   &kp RBKT                  &kp LS(RBKT)           &trans                &kp APOS
         &kp LS(N9)                   &kp BSLH                  &kp LS(BSLH)           &kp SPACE             &kp INT3
         &kp LS(N6)                   &kp LS(EQUAL)             &kp LS(SEMI)           &kp MINUS             &kp LS(MINUS)
-        &kp SEMI                     &kp LS(APOS)              &kp LBKT               &trans                &kp LC(LS(Z))
-        &kp SPACE                    &kp UNDER                 &kp QMARK              &kp LC(Z)             &trans
+        &kp SEMI                     &kp LS(APOS)              &kp LBKT               &trans                &kp LGUI
+        &kp SPACE                    &kp UNDER                 &kp QMARK              &kp LALT              &trans
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+      sensor-bindings = <&encoder_msc_down_up>;
     };
 
     number_layer {
@@ -255,8 +233,8 @@
         &kp N4                       &kp N5                    &kp N6                 &kp N0                &none
         &kp N7                       &kp N8                    &kp N9                 &kp COMMA             &kp F10
         &kp F1                       &kp F2                    &kp F3                 &kp F4                &kp F5
-        &kp F6                       &kp F7                    &kp F8                 &kp F9                &kp LC(LS(Z))
-        &kp F11                      &kp F12                   &trans                 &kp LC(Z)             &trans
+        &kp F6                       &kp F7                    &kp F8                 &kp F9                &kp LGUI
+        &kp F11                      &kp F12                   &trans                 &kp LALT              &none
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -264,12 +242,12 @@
 
     nav_layer {
       bindings = <
-        &kp LG(LS(S))                &kp UP                    &kp HOME               &trans                &trans
-        &kp LEFT                     &kp DOWN                  &kp RIGHT              &kp HOME              &trans
-        &kp INS                      &kp LS(TAB)               &kp LS(LC(TAB))        &kp TAB               &kp LC(TAB)
-        &trans                       &trans                    &trans                 &trans                &kp DEL
-        &trans                       &trans                    &trans                 &trans                &kp LC(LS(Z))
-        &trans                       &trans                    &trans                 &kp LC(Z)             &trans
+        &kp HOME                     &kp UP                    &kp END                &kp LC(TAB)           &kp PG_UP
+        &kp LEFT                     &kp DOWN                  &kp RIGHT              &kp HOME              &kp LS(TAB)
+        &kp INS                      &trans                    &trans                 &kp LC(LS(TAB))       &kp PG_DN
+        &trans                       &mkp MB3                  &trans                 &kp PRSCRN            &kp DEL
+        &trans                       &mkp MB1                  &mkp MB2               &trans                &kp LGUI
+        &trans                       &trans                    &trans                 &kp LALT              &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -279,10 +257,10 @@
       bindings = <
         &kp K                        &kp G                     &kp J                  &kp F                 &kp P
         &kp LSHIFT                   &kp LGUI                  &kp LALT               &kp SPACE             &kp I
-        &kp X                        &kp O                     &kp U                  &kp Q                 &kp B
+        &kp X                        &kp O                     &kp U                  &kp Q                 &kp Z
         &kp Y                        &kp UP                    &kp M                  &kp C                 &kp DEL
         &kp LEFT                     &kp DOWN                  &kp RIGHT              &kp ENTER             &kp LC(TAB)
-        &kp N                        &kp Z                     &none                  &kp TAB               &kp C_MUTE
+        &kp N                        &kp Z                     &none                  &kp TAB               &none
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
