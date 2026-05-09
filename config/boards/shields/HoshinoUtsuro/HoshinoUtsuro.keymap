@@ -245,7 +245,7 @@
         &kp HOME                     &kp UP                    &kp END                &kp LC(TAB)           &kp PG_UP
         &kp LEFT                     &kp DOWN                  &kp RIGHT              &kp HOME              &kp LS(TAB)
         &kp INS                      &trans                    &trans                 &kp LC(LS(TAB))       &kp PG_DN
-        &trans                       &mkp MB3                  &trans                 &kp PRSCRN            &kp DEL
+        &trans                       &mkp MB3                  &trans                 &kp PSCRN            &kp DEL
         &trans                       &mkp MB1                  &mkp MB2               &trans                &kp LGUI
         &trans                       &trans                    &trans                 &kp LALT              &trans
       >;
