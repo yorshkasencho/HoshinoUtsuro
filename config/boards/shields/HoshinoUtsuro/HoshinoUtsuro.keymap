@@ -5,18 +5,15 @@
  *
  * LThumb = 現在単独で LALT を送っていたキー
  *        = key-position 28
- *        = 今回は TAB に変更
+ *        = 現在は TAB
  *
  * RThumb = 現在単独で LGUI を送っていたキー
  *        = key-position 24
- *        = 今回は Ctrl+Tab に変更
+ *        = 現在は Ctrl+Tab
  *
  * Encoder push = C_MUTE
  *        = key-position 29
  *        = 親指キーではない
- *
- * Test:
- * X position = Alt/X hold-tap with hold-while-undecided
  */
 
 #include <behaviors.dtsi>
@@ -31,16 +28,6 @@
       flavor = "tap-preferred";
       tapping-term-ms = <120>;
       quick-tap-ms = <0>;
-      bindings = <&kp>, <&kp>;
-    };
-
-    modtap_alt_instant: modtap_alt_instant {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "tap-preferred";
-      tapping-term-ms = <120>;
-      quick-tap-ms = <0>;
-      hold-while-undecided;
       bindings = <&kp>, <&kp>;
     };
 
@@ -275,12 +262,12 @@
 
     default_layer {
       bindings = <
-        &modtap_hp LSHIFT Q          &kp W                         &kp E                  &kp R                 &kp T
-        &a_shift_hold LSHIFT A       &kp S                         &kp D                  &f_nav_hold 3 F       &kp G
-        &z_ctrl_hold LCTRL Z         &modtap_alt_instant LALT X    &modtap_hp LGUI C      &modtap_hp LALT V     &kp B
-        &kp Y                        &kp U                         &kp I                  &kp O                 &kp BSPC
-        &kp H                        &kp J                         &kp K                  &l_sym_hold 1 ENTER   &kp LC(TAB)
-        &kp N                        &kp M                         &slash_num_hold 2 FSLH &kp TAB               &kp C_MUTE
+        &modtap_hp LSHIFT Q          &kp W                     &kp E                  &kp R                 &kp T
+        &a_shift_hold LSHIFT A       &kp S                     &kp D                  &f_nav_hold 3 F       &kp G
+        &z_ctrl_hold LCTRL Z         &modtap_hp LALT X         &modtap_hp LGUI C      &modtap_hp LALT V     &kp B
+        &kp Y                        &kp U                     &kp I                  &kp O                 &kp BSPC
+        &kp H                        &kp J                     &kp K                  &l_sym_hold 1 ENTER   &kp LC(TAB)
+        &kp N                        &kp M                     &slash_num_hold 2 FSLH &kp TAB               &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -288,12 +275,12 @@
 
     symbol_layer {
       bindings = <
-        &kp LS(N1)                   &kp LS(N2)                    &kp LS(N3)             &kp LS(N4)            &kp LS(N5)
-        &kp LS(N8)                   &kp RBKT                      &kp LS(RBKT)           &trans                &kp APOS
-        &kp LS(N9)                   &kp BSLH                      &kp LS(BSLH)           &kp SPACE             &kp INT3
-        &kp LS(N6)                   &kp LS(EQUAL)                 &kp LS(SEMI)           &kp MINUS             &kp LS(MINUS)
-        &kp SEMI                     &kp LS(APOS)                  &kp LBKT               &trans                &kp LC(TAB)
-        &kp SPACE                    &kp UNDER                     &kp QMARK              &kp TAB               &kp C_MUTE
+        &kp LS(N1)                   &kp LS(N2)                &kp LS(N3)             &kp LS(N4)            &kp LS(N5)
+        &kp LS(N8)                   &kp RBKT                  &kp LS(RBKT)           &trans                &kp APOS
+        &kp LS(N9)                   &kp BSLH                  &kp LS(BSLH)           &kp SPACE             &kp INT3
+        &kp LS(N6)                   &kp LS(EQUAL)             &kp LS(SEMI)           &kp MINUS             &kp LS(MINUS)
+        &kp SEMI                     &kp LS(APOS)              &kp LBKT               &trans                &kp LC(TAB)
+        &kp SPACE                    &kp UNDER                 &kp QMARK              &kp TAB               &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -301,12 +288,12 @@
 
     number_layer {
       bindings = <
-        &kp N1                       &kp N2                        &kp N3                 &kp DOT               &kp LS(N5)
-        &kp N4                       &kp N5                        &kp N6                 &kp N0                &none
-        &kp N7                       &kp N8                        &kp N9                 &kp COMMA             &kp F10
-        &kp F1                       &kp F2                        &kp F3                 &kp F4                &kp F5
-        &kp F6                       &kp F7                        &kp F8                 &kp F9                &kp LC(TAB)
-        &kp F11                      &kp F12                       &trans                 &kp TAB               &kp C_MUTE
+        &kp N1                       &kp N2                    &kp N3                 &kp DOT               &kp LS(N5)
+        &kp N4                       &kp N5                    &kp N6                 &kp N0                &none
+        &kp N7                       &kp N8                    &kp N9                 &kp COMMA             &kp F10
+        &kp F1                       &kp F2                    &kp F3                 &kp F4                &kp F5
+        &kp F6                       &kp F7                    &kp F8                 &kp F9                &kp LC(TAB)
+        &kp F11                      &kp F12                   &trans                 &kp TAB               &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -314,12 +301,12 @@
 
     nav_layer {
       bindings = <
-        &kp HOME                     &kp UP                        &kp END                &kp LC(TAB)           &kp PG_UP
-        &kp LEFT                     &kp DOWN                      &kp RIGHT              &kp HOME              &kp LS(TAB)
-        &kp INS                      &trans                        &trans                 &kp LC(LS(TAB))       &kp PG_DN
-        &trans                       &trans                        &trans                 &kp PSCRN             &kp DEL
-        &trans                       &trans                        &trans                 &trans                &kp LC(TAB)
-        &trans                       &trans                        &trans                 &kp TAB               &kp C_MUTE
+        &kp HOME                     &kp UP                    &kp END                &kp LC(TAB)           &kp PG_UP
+        &kp LEFT                     &kp DOWN                  &kp RIGHT              &kp HOME              &kp LS(TAB)
+        &kp INS                      &trans                    &trans                 &kp LC(LS(TAB))       &kp PG_DN
+        &trans                       &trans                    &trans                 &kp PSCRN             &kp DEL
+        &trans                       &trans                    &trans                 &trans                &kp LC(TAB)
+        &trans                       &trans                    &trans                 &kp TAB               &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -327,12 +314,12 @@
 
     draw_layer {
       bindings = <
-        &kp K                        &kp G                         &kp J                  &kp F                 &kp P
-        &kp LSHIFT                   &kp LGUI                      &kp LALT               &kp SPACE             &kp I
-        &kp X                        &kp O                         &kp U                  &kp Q                 &kp Z
-        &kp Y                        &kp UP                        &kp M                  &kp C                 &kp DEL
-        &kp LEFT                     &kp DOWN                      &kp RIGHT              &kp ENTER             &kp LC(TAB)
-        &kp N                        &kp Z                         &none                  &kp TAB               &kp C_MUTE
+        &kp K                        &kp G                     &kp J                  &kp F                 &kp P
+        &kp LSHIFT                   &kp LGUI                  &kp LALT               &kp SPACE             &kp I
+        &kp X                        &kp O                     &kp U                  &kp Q                 &kp Z
+        &kp Y                        &kp UP                    &kp M                  &kp C                 &kp DEL
+        &kp LEFT                     &kp DOWN                  &kp RIGHT              &kp ENTER             &kp LC(TAB)
+        &kp N                        &kp Z                     &none                  &kp TAB               &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
