@@ -15,6 +15,11 @@
  *        = key-position 29
  *        = 親指キーではない
  *
+ * BLE / OS mode:
+ * GHP = BLE profile 0 + WIN mode (C hold = LCTRL)
+ * GHL/GHSlash/GHO/GHM = other BLE profiles; WIN mode is cleared
+ * Normal mode C hold = LGUI
+ *
  * Pointing combo test:
  * ZX = Alt + Left Click hold
  * XC = Alt + Right Click hold
@@ -89,7 +94,7 @@
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&bt BT_SEL 0>, <&to 0>;
+      bindings = <&bt BT_SEL 0>, <&to 1>;
     };
 
     bt1_draw: bt1_draw {
@@ -97,7 +102,7 @@
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&bt BT_SEL 1>, <&to 4>;
+      bindings = <&bt BT_SEL 1>, <&to 5>;
     };
 
     bt2_default: bt2_default {
@@ -129,7 +134,7 @@
       #binding-cells = <0>;
       wait-ms = <0>;
       tap-ms = <0>;
-      bindings = <&bat_led 2>, <&to 4>;
+      bindings = <&bat_led 2>, <&to 5>;
     };
 
     default_mode_led: default_mode_led {
@@ -199,121 +204,150 @@
   combos {
     compatible = "zmk,combos";
 
-    combo_op_p { timeout-ms = <40>; layers = <0>; key-positions = <18 19>; bindings = <&kp P>; };
-    combo_kl_l { timeout-ms = <40>; layers = <0>; key-positions = <22 23>; bindings = <&kp L>; };
-    combo_lo_minus { timeout-ms = <40>; layers = <0>; key-positions = <23 18>; bindings = <&kp MINUS>; };
-    combo_fj_space { timeout-ms = <40>; layers = <0>; key-positions = <8 21>; bindings = <&kp SPACE>; };
-    combo_nm_comma { timeout-ms = <40>; layers = <0>; key-positions = <25 26>; bindings = <&kp COMMA>; };
-    combo_mslash_dot { timeout-ms = <40>; layers = <0>; key-positions = <26 27>; bindings = <&kp DOT>; };
-    combo_qw_esc { timeout-ms = <40>; layers = <0>; key-positions = <0 1>; bindings = <&kp ESC>; };
-    combo_as_tab { timeout-ms = <40>; layers = <0>; key-positions = <5 6>; bindings = <&kp TAB>; };
+    combo_op_p { timeout-ms = <40>; layers = <0 1>; key-positions = <18 19>; bindings = <&kp P>; };
+    combo_kl_l { timeout-ms = <40>; layers = <0 1>; key-positions = <22 23>; bindings = <&kp L>; };
+    combo_lo_minus { timeout-ms = <40>; layers = <0 1>; key-positions = <23 18>; bindings = <&kp MINUS>; };
+    combo_fj_space { timeout-ms = <40>; layers = <0 1>; key-positions = <8 21>; bindings = <&kp SPACE>; };
+    combo_nm_comma { timeout-ms = <40>; layers = <0 1>; key-positions = <25 26>; bindings = <&kp COMMA>; };
+    combo_mslash_dot { timeout-ms = <40>; layers = <0 1>; key-positions = <26 27>; bindings = <&kp DOT>; };
+    combo_qw_esc { timeout-ms = <40>; layers = <0 1>; key-positions = <0 1>; bindings = <&kp ESC>; };
+    combo_as_tab { timeout-ms = <40>; layers = <0 1>; key-positions = <5 6>; bindings = <&kp TAB>; };
 
-    combo_pl_ctrl { timeout-ms = <40>; layers = <0>; key-positions = <19 23>; bindings = <&kp LCTRL>; };
-    combo_lslash_alt { timeout-ms = <40>; layers = <0>; key-positions = <23 27>; bindings = <&kp LALT>; };
-    combo_pslash_gui { timeout-ms = <40>; layers = <0>; key-positions = <19 27>; bindings = <&kp LGUI>; };
+    combo_pl_ctrl { timeout-ms = <40>; layers = <0 1>; key-positions = <19 23>; bindings = <&kp LCTRL>; };
+    combo_lslash_alt { timeout-ms = <40>; layers = <0 1>; key-positions = <23 27>; bindings = <&kp LALT>; };
+    combo_pslash_gui { timeout-ms = <40>; layers = <0 1>; key-positions = <19 27>; bindings = <&kp LGUI>; };
 
-    combo_ui_kana { timeout-ms = <40>; layers = <0>; key-positions = <16 17>; bindings = <&kana_led>; };
-    combo_er_eisu { timeout-ms = <40>; layers = <0>; key-positions = <2 3>; bindings = <&eisu_led>; };
+    combo_ui_kana { timeout-ms = <40>; layers = <0 1>; key-positions = <16 17>; bindings = <&kana_led>; };
+    combo_er_eisu { timeout-ms = <40>; layers = <0 1>; key-positions = <2 3>; bindings = <&eisu_led>; };
 
     combo_zx_alt_left_click {
       timeout-ms = <40>;
-      layers = <0>;
+      layers = <0 1>;
       key-positions = <10 11>;
       bindings = <&alt_left_click>;
     };
 
     combo_xc_alt_right_click {
       timeout-ms = <40>;
-      layers = <0>;
+      layers = <0 1>;
       key-positions = <11 12>;
       bindings = <&alt_right_click>;
     };
 
     combo_zc_alt_middle_click {
       timeout-ms = <40>;
-      layers = <0>;
+      layers = <0 1>;
       key-positions = <10 12>;
       bindings = <&alt_middle_click>;
     };
 
     /* Vキー起点 数字・小数点コンボ */
-    combo_vq_1 { timeout-ms = <40>; layers = <0>; key-positions = <13 0>; bindings = <&kp N1>; };
-    combo_vw_2 { timeout-ms = <40>; layers = <0>; key-positions = <13 1>; bindings = <&kp N2>; };
-    combo_ve_3 { timeout-ms = <40>; layers = <0>; key-positions = <13 2>; bindings = <&kp N3>; };
-    combo_vr_dot { timeout-ms = <40>; layers = <0>; key-positions = <13 3>; bindings = <&kp DOT>; };
-    combo_va_4 { timeout-ms = <40>; layers = <0>; key-positions = <13 5>; bindings = <&kp N4>; };
-    combo_vs_5 { timeout-ms = <40>; layers = <0>; key-positions = <13 6>; bindings = <&kp N5>; };
-    combo_vd_6 { timeout-ms = <40>; layers = <0>; key-positions = <13 7>; bindings = <&kp N6>; };
-    combo_vf_0 { timeout-ms = <40>; layers = <0>; key-positions = <13 8>; bindings = <&kp N0>; };
-    combo_vz_7 { timeout-ms = <40>; layers = <0>; key-positions = <13 10>; bindings = <&kp N7>; };
-    combo_vx_8 { timeout-ms = <40>; layers = <0>; key-positions = <13 11>; bindings = <&kp N8>; };
-    combo_vc_9 { timeout-ms = <40>; layers = <0>; key-positions = <13 12>; bindings = <&kp N9>; };
+    combo_vq_1 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 0>; bindings = <&kp N1>; };
+    combo_vw_2 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 1>; bindings = <&kp N2>; };
+    combo_ve_3 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 2>; bindings = <&kp N3>; };
+    combo_vr_dot { timeout-ms = <40>; layers = <0 1>; key-positions = <13 3>; bindings = <&kp DOT>; };
+    combo_va_4 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 5>; bindings = <&kp N4>; };
+    combo_vs_5 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 6>; bindings = <&kp N5>; };
+    combo_vd_6 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 7>; bindings = <&kp N6>; };
+    combo_vf_0 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 8>; bindings = <&kp N0>; };
+    combo_vz_7 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 10>; bindings = <&kp N7>; };
+    combo_vx_8 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 11>; bindings = <&kp N8>; };
+    combo_vc_9 { timeout-ms = <40>; layers = <0 1>; key-positions = <13 12>; bindings = <&kp N9>; };
 
-    combo_ghp_bt0 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 19>; bindings = <&bt0_default>; };
-    combo_ghl_bt1 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 23>; bindings = <&bt1_draw>; };
-    combo_ghslash_bt2 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 27>; bindings = <&bt2_default>; };
-    combo_gho_bt3 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 18>; bindings = <&bt3_default>; };
-    combo_ghm_bt4 { timeout-ms = <50>; layers = <0 1 2 3 4>; key-positions = <9 20 26>; bindings = <&bt4_default>; };
+    combo_ghp_bt0 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4 5>;
+      key-positions = <9 20 19>;
+      bindings = <&bt0_default>;
+    };
+
+    combo_ghl_bt1 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4 5>;
+      key-positions = <9 20 23>;
+      bindings = <&bt1_draw>;
+    };
+
+    combo_ghslash_bt2 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4 5>;
+      key-positions = <9 20 27>;
+      bindings = <&bt2_default>;
+    };
+
+    combo_gho_bt3 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4 5>;
+      key-positions = <9 20 18>;
+      bindings = <&bt3_default>;
+    };
+
+    combo_ghm_bt4 {
+      timeout-ms = <50>;
+      layers = <0 1 2 3 4 5>;
+      key-positions = <9 20 26>;
+      bindings = <&bt4_default>;
+    };
 
     combo_ghq_btclr {
       timeout-ms = <50>;
-      layers = <0 1 2 3 4>;
+      layers = <0 1 2 3 4 5>;
       key-positions = <9 20 0>;
       bindings = <&bt BT_CLR>;
     };
 
     combo_ghv_battery_led {
       timeout-ms = <60>;
-      layers = <0 1 2 3 4>;
+      layers = <0 1 2 3 4 5>;
       key-positions = <9 20 13>;
       bindings = <&bat_led 0>;
     };
 
     combo_ghc_led_check {
       timeout-ms = <60>;
-      layers = <0 1 2 3 4>;
+      layers = <0 1 2 3 4 5>;
       key-positions = <9 20 12>;
       bindings = <&bat_led 1>;
     };
 
     combo_ghb_draw {
       timeout-ms = <60>;
-      layers = <0 1 2 3 4>;
+      layers = <0 1 2 3 4 5>;
       key-positions = <9 20 14>;
       bindings = <&draw_mode_led>;
     };
 
     combo_ghn_default {
       timeout-ms = <60>;
-      layers = <0 1 2 3 4>;
+      layers = <0 1 2 3 4 5>;
       key-positions = <9 20 25>;
       bindings = <&default_mode_led>;
     };
 
     combo_draw_qw_esc {
       timeout-ms = <40>;
-      layers = <4>;
+      layers = <5>;
       key-positions = <0 1>;
       bindings = <&kp ESC>;
     };
 
     combo_draw_er_enter {
       timeout-ms = <40>;
-      layers = <4>;
+      layers = <5>;
       key-positions = <2 3>;
       bindings = <&kp ENTER>;
     };
 
     combo_draw_zx_b {
       timeout-ms = <40>;
-      layers = <4>;
+      layers = <5>;
       key-positions = <10 11>;
       bindings = <&kp B>;
     };
 
     combo_draw_cv_c {
       timeout-ms = <40>;
-      layers = <4>;
+      layers = <5>;
       key-positions = <12 13>;
       bindings = <&kp C>;
     };
@@ -325,11 +359,31 @@
     default_layer {
       bindings = <
         &modtap_hp LSHIFT Q          &kp W                     &kp E                  &kp R                 &kp T
-        &a_shift_hold LSHIFT A       &kp S                     &kp D                  &f_nav_hold 3 F       &kp G
+        &a_shift_hold LSHIFT A       &kp S                     &kp D                  &f_nav_hold 4 F       &kp G
         &z_ctrl_hold LCTRL Z         &modtap_hp LALT X         &modtap_hp LGUI C      &modtap_hp LALT V     &kp B
         &kp Y                        &kp U                     &kp I                  &kp O                 &kp BSPC
-        &kp H                        &kp J                     &kp K                  &l_sym_hold 1 ENTER   &kp LC(TAB)
-        &kp N                        &kp M                     &slash_num_hold 2 FSLH &kp TAB               &kp C_MUTE
+        &kp H                        &kp J                     &kp K                  &l_sym_hold 2 ENTER   &kp LC(TAB)
+        &kp N                        &kp M                     &slash_num_hold 3 FSLH &kp TAB               &kp C_MUTE
+      >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    /*
+     * WIN mode (BLE profile 0 via GHP)
+     * Only the physical C position differs from the normal base layer:
+     *   tap  = C
+     *   hold = LCTRL
+     * All other keys fall through to default_layer.
+     */
+    win_layer {
+      bindings = <
+        &trans                     &trans                     &trans                 &trans                &trans
+        &trans                     &trans                     &trans                 &trans                &trans
+        &trans                     &trans                     &modtap_hp LCTRL C     &trans                &trans
+        &trans                     &trans                     &trans                 &trans                &trans
+        &trans                     &trans                     &trans                 &trans                &trans
+        &trans                     &trans                     &trans                 &trans                &trans
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
