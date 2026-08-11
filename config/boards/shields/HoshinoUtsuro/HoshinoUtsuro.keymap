@@ -217,8 +217,19 @@
     combo_lslash_alt { timeout-ms = <40>; layers = <0 1>; key-positions = <23 27>; bindings = <&kp LALT>; };
     combo_pslash_gui { timeout-ms = <40>; layers = <0 1>; key-positions = <19 27>; bindings = <&kp LGUI>; };
 
-    combo_ui_kana { timeout-ms = <40>; layers = <0 1>; key-positions = <16 17>; bindings = <&kana_led>; };
-    combo_er_eisu { timeout-ms = <40>; layers = <0 1>; key-positions = <2 3>; bindings = <&eisu_led>; };
+    combo_ui_eisu {
+    timeout-ms = <35>;
+    require-prior-idle-ms = <150>;
+    key-positions = <16 17>;
+    bindings = <&eisu_led>;
+};
+
+combo_er_kana {
+    timeout-ms = <35>;
+    require-prior-idle-ms = <150>;
+    key-positions = <2 3>;
+    bindings = <&kana_led>;
+};
 
     combo_zx_alt_left_click {
       timeout-ms = <40>;
