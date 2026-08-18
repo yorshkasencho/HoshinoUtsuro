@@ -413,7 +413,7 @@ combo_er_kana {
         &kp LS(N9)                   &kp BSLH                  &kp LS(BSLH)           &kp SPACE             &kp INT3
         &kp LS(N6)                   &kp LS(EQUAL)             &kp LS(SEMI)           &kp MINUS             &kp LS(MINUS)
         &kp SEMI                     &kp LS(APOS)              &kp LBKT               &trans                &kp LC(TAB)
-        &kp SPACE                    &kp UNDER                 &kp QMARK              &kp TAB               &kp C_MUTE
+        &kp SPACE                    &kp LS(INT1)              &kp QMARK              &kp TAB               &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
