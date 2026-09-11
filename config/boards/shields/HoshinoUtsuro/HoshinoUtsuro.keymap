@@ -195,7 +195,6 @@
     /*
      * GHN
      * DrawだけOFF。
-     * 下のWindows / Apple layerは維持。
      */
     default_mode_led: default_mode_led {
       compatible = "zmk,behavior-macro";
@@ -292,9 +291,6 @@
       bindings = <&kp MINUS>;
     };
 
-    /*
-     * F + J = Space
-     */
     combo_fj_space {
       timeout-ms = <40>;
       layers = <0 1>;
@@ -302,9 +298,6 @@
       bindings = <&kp SPACE>;
     };
 
-    /*
-     * J + K = Space
-     */
     combo_jk_space {
       timeout-ms = <40>;
       layers = <0 1>;
@@ -326,10 +319,6 @@
       bindings = <&kp DOT>;
     };
 
-    /*
-     * Normal / Apple
-     * Q + W = Escape
-     */
     combo_qw_esc {
       timeout-ms = <40>;
       layers = <0 1>;
@@ -365,9 +354,6 @@
       bindings = <&kp LGUI>;
     };
 
-    /*
-     * U + I = 英数
-     */
     combo_ui_eisu {
       timeout-ms = <35>;
       require-prior-idle-ms = <150>;
@@ -376,9 +362,6 @@
       bindings = <&eisu_led>;
     };
 
-    /*
-     * E + R = かな
-     */
     combo_er_kana {
       timeout-ms = <35>;
       require-prior-idle-ms = <150>;
@@ -411,10 +394,6 @@
 
     /*
      * Vキー起点 数字・小数点コンボ
-     *
-     * 0-9 = テンキー入力
-     * .   = テンキー小数点
-     *
      * NumLock ON前提
      */
 
@@ -500,9 +479,6 @@
      * BLE switching
      */
 
-    /*
-     * GHP = BLE0 Windows
-     */
     combo_ghp_bt0 {
       timeout-ms = <50>;
       layers = <0 1 2 3 4 5>;
@@ -510,9 +486,6 @@
       bindings = <&bt0_default>;
     };
 
-    /*
-     * GHL = BLE1 iPad + Draw
-     */
     combo_ghl_bt1 {
       timeout-ms = <50>;
       layers = <0 1 2 3 4 5>;
@@ -520,9 +493,6 @@
       bindings = <&bt1_draw>;
     };
 
-    /*
-     * GHSlash = BLE2 iPhone
-     */
     combo_ghslash_bt2 {
       timeout-ms = <50>;
       layers = <0 1 2 3 4 5>;
@@ -530,9 +500,6 @@
       bindings = <&bt2_default>;
     };
 
-    /*
-     * GHO = BLE3 MacBook
-     */
     combo_gho_bt3 {
       timeout-ms = <50>;
       layers = <0 1 2 3 4 5>;
@@ -540,9 +507,6 @@
       bindings = <&bt3_default>;
     };
 
-    /*
-     * GHM = BLE4 Default
-     */
     combo_ghm_bt4 {
       timeout-ms = <50>;
       layers = <0 1 2 3 4 5>;
@@ -550,9 +514,6 @@
       bindings = <&bt4_default>;
     };
 
-    /*
-     * GHQ = BLE clear
-     */
     combo_ghq_btclr {
       timeout-ms = <50>;
       layers = <0 1 2 3 4 5>;
@@ -560,9 +521,6 @@
       bindings = <&bt BT_CLR>;
     };
 
-    /*
-     * GHV = Battery LED
-     */
     combo_ghv_battery_led {
       timeout-ms = <60>;
       layers = <0 1 2 3 4 5>;
@@ -570,9 +528,6 @@
       bindings = <&bat_led 0>;
     };
 
-    /*
-     * GHC = LED check
-     */
     combo_ghc_led_check {
       timeout-ms = <60>;
       layers = <0 1 2 3 4 5>;
@@ -580,9 +535,6 @@
       bindings = <&bat_led 1>;
     };
 
-    /*
-     * GHB = Draw ON
-     */
     combo_ghb_draw {
       timeout-ms = <60>;
       layers = <0 1 2 3 4 5>;
@@ -590,9 +542,6 @@
       bindings = <&draw_mode_led>;
     };
 
-    /*
-     * GHN = Draw OFF
-     */
     combo_ghn_default {
       timeout-ms = <60>;
       layers = <0 1 2 3 4 5>;
@@ -605,10 +554,6 @@
      * Draw layer専用コンボ
      */
 
-    /*
-     * Draw:
-     * Q + W = Escape
-     */
     combo_draw_qw_esc {
       timeout-ms = <40>;
       layers = <5>;
@@ -616,10 +561,6 @@
       bindings = <&kp ESC>;
     };
 
-    /*
-     * Draw:
-     * E + R = Enter
-     */
     combo_draw_er_enter {
       timeout-ms = <40>;
       layers = <5>;
@@ -627,10 +568,6 @@
       bindings = <&kp ENTER>;
     };
 
-    /*
-     * Draw:
-     * Z + X = B
-     */
     combo_draw_zx_b {
       timeout-ms = <40>;
       layers = <5>;
@@ -638,10 +575,6 @@
       bindings = <&kp B>;
     };
 
-    /*
-     * Draw:
-     * C + V = C
-     */
     combo_draw_cv_c {
       timeout-ms = <40>;
       layers = <5>;
@@ -657,12 +590,7 @@
 
     /*
      * Layer 0
-     *
      * Default / Windows
-     *
-     * C:
-     * tap  = C
-     * hold = CTRL
      */
     default_layer {
       bindings = <
@@ -680,7 +608,6 @@
 
     /*
      * Layer 1
-     *
      * Apple mode
      */
     apple_layer {
@@ -719,13 +646,13 @@
      * Layer 3
      * Number
      *
-     * 0-9 are sent as keypad numbers.
-     * NumLock ON required.
+     * G = NumLock
+     * 0-9 = テンキー
      */
     number_layer {
       bindings = <
         &kp KP_N1                    &kp KP_N2                 &kp KP_N3              &kp DOT               &kp LS(N5)
-        &kp KP_N4                    &kp KP_N5                 &kp KP_N6              &kp KP_N0             &none
+        &kp KP_N4                    &kp KP_N5                 &kp KP_N6              &kp KP_N0             &kp KP_NUMLOCK
         &kp KP_N7                    &kp KP_N8                 &kp KP_N9              &kp COMMA             &kp F10
         &kp F1                       &kp F2                    &kp F3                 &kp F4                &kp F5
         &kp F6                       &kp F7                    &kp F8                 &kp F9                &kp LC(TAB)
