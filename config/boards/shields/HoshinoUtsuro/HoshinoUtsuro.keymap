@@ -95,10 +95,6 @@
       bindings = <&mo>, <&kp>;
     };
 
-    /*
-     * Draw layerを現在のBase layerの上に
-     * 明示的にON/OFFする。
-     */
     draw_on: draw_on {
       compatible = "zmk,behavior-toggle-layer";
       #binding-cells = <1>;
@@ -296,7 +292,6 @@
       bindings = <&kp MINUS>;
     };
 
-
     /*
      * F + J = Space
      */
@@ -307,7 +302,6 @@
       bindings = <&kp SPACE>;
     };
 
-
     /*
      * J + K = Space
      */
@@ -317,7 +311,6 @@
       key-positions = <21 22>;
       bindings = <&kp SPACE>;
     };
-
 
     combo_nm_comma {
       timeout-ms = <40>;
@@ -351,7 +344,6 @@
       bindings = <&kp TAB>;
     };
 
-
     combo_pl_ctrl {
       timeout-ms = <40>;
       layers = <0 1>;
@@ -373,15 +365,8 @@
       bindings = <&kp LGUI>;
     };
 
-
     /*
      * U + I = 英数
-     *
-     * Normal / Apple layerでのみ有効。
-     * Draw layerでは無効。
-     *
-     * 文章入力中の誤爆防止:
-     * 直前150ms以内に通常キー入力があれば発動しない。
      */
     combo_ui_eisu {
       timeout-ms = <35>;
@@ -391,15 +376,8 @@
       bindings = <&eisu_led>;
     };
 
-
     /*
      * E + R = かな
-     *
-     * Normal / Apple layerでのみ有効。
-     * Draw layerでは無効。
-     *
-     * Draw layerでは同じE+R位置を
-     * Enterとして使用するため明示的に分離。
      */
     combo_er_kana {
       timeout-ms = <35>;
@@ -408,7 +386,6 @@
       key-positions = <2 3>;
       bindings = <&kana_led>;
     };
-
 
     combo_zx_alt_left_click {
       timeout-ms = <40>;
@@ -434,83 +411,88 @@
 
     /*
      * Vキー起点 数字・小数点コンボ
+     *
+     * 0-9 = テンキー入力
+     * .   = テンキー小数点
+     *
+     * NumLock ON前提
      */
 
     combo_vq_1 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 0>;
-      bindings = <&kp N1>;
+      bindings = <&kp KP_N1>;
     };
 
     combo_vw_2 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 1>;
-      bindings = <&kp N2>;
+      bindings = <&kp KP_N2>;
     };
 
     combo_ve_3 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 2>;
-      bindings = <&kp N3>;
+      bindings = <&kp KP_N3>;
     };
 
     combo_vr_dot {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 3>;
-      bindings = <&kp DOT>;
+      bindings = <&kp KP_DOT>;
     };
 
     combo_va_4 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 5>;
-      bindings = <&kp N4>;
+      bindings = <&kp KP_N4>;
     };
 
     combo_vs_5 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 6>;
-      bindings = <&kp N5>;
+      bindings = <&kp KP_N5>;
     };
 
     combo_vd_6 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 7>;
-      bindings = <&kp N6>;
+      bindings = <&kp KP_N6>;
     };
 
     combo_vf_0 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 8>;
-      bindings = <&kp N0>;
+      bindings = <&kp KP_N0>;
     };
 
     combo_vz_7 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 10>;
-      bindings = <&kp N7>;
+      bindings = <&kp KP_N7>;
     };
 
     combo_vx_8 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 11>;
-      bindings = <&kp N8>;
+      bindings = <&kp KP_N8>;
     };
 
     combo_vc_9 {
       timeout-ms = <40>;
       layers = <0 1>;
       key-positions = <13 12>;
-      bindings = <&kp N9>;
+      bindings = <&kp KP_N9>;
     };
 
 
@@ -528,7 +510,6 @@
       bindings = <&bt0_default>;
     };
 
-
     /*
      * GHL = BLE1 iPad + Draw
      */
@@ -538,7 +519,6 @@
       key-positions = <9 20 23>;
       bindings = <&bt1_draw>;
     };
-
 
     /*
      * GHSlash = BLE2 iPhone
@@ -550,7 +530,6 @@
       bindings = <&bt2_default>;
     };
 
-
     /*
      * GHO = BLE3 MacBook
      */
@@ -560,7 +539,6 @@
       key-positions = <9 20 18>;
       bindings = <&bt3_default>;
     };
-
 
     /*
      * GHM = BLE4 Default
@@ -572,7 +550,6 @@
       bindings = <&bt4_default>;
     };
 
-
     /*
      * GHQ = BLE clear
      */
@@ -582,7 +559,6 @@
       key-positions = <9 20 0>;
       bindings = <&bt BT_CLR>;
     };
-
 
     /*
      * GHV = Battery LED
@@ -594,7 +570,6 @@
       bindings = <&bat_led 0>;
     };
 
-
     /*
      * GHC = LED check
      */
@@ -605,7 +580,6 @@
       bindings = <&bat_led 1>;
     };
 
-
     /*
      * GHB = Draw ON
      */
@@ -615,7 +589,6 @@
       key-positions = <9 20 14>;
       bindings = <&draw_mode_led>;
     };
-
 
     /*
      * GHN = Draw OFF
@@ -643,7 +616,6 @@
       bindings = <&kp ESC>;
     };
 
-
     /*
      * Draw:
      * E + R = Enter
@@ -655,7 +627,6 @@
       bindings = <&kp ENTER>;
     };
 
-
     /*
      * Draw:
      * Z + X = B
@@ -666,7 +637,6 @@
       key-positions = <10 11>;
       bindings = <&kp B>;
     };
-
 
     /*
      * Draw:
@@ -712,18 +682,6 @@
      * Layer 1
      *
      * Apple mode
-     *
-     * BLE1 iPad
-     * BLE2 iPhone
-     * BLE3 MacBook
-     *
-     * C位置のみ上書き。
-     *
-     * C:
-     * tap  = C
-     * hold = GUI
-     *
-     * 他キーはdefault_layerへ透過。
      */
     apple_layer {
       bindings = <
@@ -742,9 +700,6 @@
     /*
      * Layer 2
      * Symbol
-     *
-     * M位置:
-     * Shift + INT1 = JIS _
      */
     symbol_layer {
       bindings = <
@@ -763,12 +718,15 @@
     /*
      * Layer 3
      * Number
+     *
+     * 0-9 are sent as keypad numbers.
+     * NumLock ON required.
      */
     number_layer {
       bindings = <
-        &kp N1                       &kp N2                    &kp N3                 &kp DOT               &kp LS(N5)
-        &kp N4                       &kp N5                    &kp N6                 &kp N0                &none
-        &kp N7                       &kp N8                    &kp N9                 &kp COMMA             &kp F10
+        &kp KP_N1                    &kp KP_N2                 &kp KP_N3              &kp DOT               &kp LS(N5)
+        &kp KP_N4                    &kp KP_N5                 &kp KP_N6              &kp KP_N0             &none
+        &kp KP_N7                    &kp KP_N8                 &kp KP_N9              &kp COMMA             &kp F10
         &kp F1                       &kp F2                    &kp F3                 &kp F4                &kp F5
         &kp F6                       &kp F7                    &kp F8                 &kp F9                &kp LC(TAB)
         &kp F11                      &kp F12                   &trans                 &kp TAB               &kp C_MUTE
@@ -799,10 +757,6 @@
     /*
      * Layer 5
      * Draw
-     *
-     * BLE1 / iPadではデフォルトで有効。
-     * Deep Sleep復帰後もprofile_layer_restore.cが
-     * Apple layer + Draw layerを再構成する。
      */
     draw_layer {
       bindings = <
